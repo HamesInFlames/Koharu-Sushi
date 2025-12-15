@@ -137,16 +137,94 @@
 }
 
 @media (max-width: 768px) {
+  .menu {
+    padding: 5rem 0;
+  }
+
+  .menu-header {
+    margin-bottom: 2rem;
+  }
+
+  .menu-title {
+    font-size: 2rem;
+  }
+
+  /* Horizontal scrollable tabs on mobile */
+  .menu-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    justify-content: flex-start;
+  }
+
+  .menu-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab-btn {
+    flex-shrink: 0;
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+    min-height: 44px; /* Touch target */
+  }
+
   .menu-panel {
-    padding: 1.5rem;
+    padding: 1.25rem;
+  }
+
+  .panel-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .panel-header h3 {
+    font-size: 1.5rem;
   }
 
   .menu-grid {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .menu-card {
+    padding: 1rem;
+    min-height: 44px; /* Touch target */
+  }
+
+  .card-content h4 {
+    font-size: 0.95rem;
+  }
+
+  .card-content p {
+    font-size: 0.8rem;
+  }
+
+  .card-price {
+    font-size: 1rem;
+  }
+
+  .menu-footer {
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+
+  .menu-note {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu {
+    padding: 4rem 0;
   }
 
   .tab-btn {
-    padding: 0.5rem 0.875rem;
+    padding: 0.625rem 0.875rem;
     font-size: 0.7rem;
   }
 }

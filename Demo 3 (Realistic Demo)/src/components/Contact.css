@@ -219,11 +219,89 @@
 }
 
 @media (max-width: 768px) {
+  .contact {
+    padding: 5rem 0;
+  }
+
+  .contact-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+  }
+
   .contact-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .contact-map {
     grid-column: span 1;
+    min-height: 300px;
+  }
+
+  .map-container iframe {
+    min-height: 300px;
+  }
+
+  .info-block {
+    padding: 1rem;
+  }
+
+  .block-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+  }
+
+  .phone-number {
+    font-size: 1.1rem;
+  }
+
+  .contact-hours {
+    padding: 1.25rem;
+  }
+
+  .contact-hours h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .hours-row {
+    padding: 0.625rem 0.75rem;
+  }
+
+  .hours-row .day {
+    font-size: 0.9rem;
+  }
+
+  .hours-row .time {
+    font-size: 0.85rem;
+  }
+
+  .allergen-notice {
+    margin-top: 1rem;
+    padding: 0.75rem;
+  }
+
+  .order-block {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .order-block .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    padding: 4rem 0;
+  }
+
+  .qr-code img {
+    width: 60px;
+    height: 60px;
   }
 }

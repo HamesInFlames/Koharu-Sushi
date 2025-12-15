@@ -215,7 +215,7 @@ body.menu-open .navbar {
 
 @media (max-width: 1024px) {
   .navbar {
-    background: rgba(15, 15, 15, 0.9);
+    background: rgba(15, 15, 15, 0.95);
     backdrop-filter: blur(10px);
     padding: 0.75rem 0;
   }
@@ -227,6 +227,7 @@ body.menu-open .navbar {
 
   .navbar-inner {
     justify-content: center;
+    padding: 0 1.25rem;
   }
 
   .logo-img {
@@ -241,10 +242,63 @@ body.menu-open .navbar {
 
   .menu-toggle {
     display: flex;
+    right: 1.25rem;
+    padding: 10px;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
   }
 
   .mobile-nav {
     display: block;
+  }
+
+  .mobile-nav-content {
+    padding: 6rem 1.5rem 3rem;
+    gap: 1.75rem;
+  }
+
+  .mobile-nav-content > a {
+    font-size: 1.75rem;
+    padding: 0.5rem 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile-nav-footer {
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .mobile-phone {
+    font-size: 1.1rem;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile-nav-footer .btn {
+    min-height: 48px;
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-img {
+    height: 45px;
+    width: 45px;
+  }
+
+  .navbar.scrolled .logo-img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .mobile-nav-content > a {
+    font-size: 1.5rem;
   }
 }
 

@@ -195,6 +195,16 @@ img {
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
+  html {
+    /* Prevent text size adjustment on orientation change */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    /* Improve touch scrolling */
+    -webkit-overflow-scrolling: touch;
+  }
+
   .container {
     padding: 0 1.25rem;
   }
@@ -208,8 +218,53 @@ img {
     width: 1.5rem;
   }
 
+  /* Ensure minimum touch target size */
   .btn {
     padding: 0.875rem 1.5rem;
     font-size: 0.8rem;
+    min-height: 44px;
+  }
+
+  /* Better tap highlight for iOS */
+  a, button {
+    -webkit-tap-highlight-color: rgba(232, 185, 35, 0.2);
+  }
+
+  /* Prevent horizontal overflow */
+  main, section {
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    padding-left: 2rem;
+  }
+
+  .section-label::before {
+    width: 1.25rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.75rem;
+    width: 100%;
+  }
+}
+
+/* Safe area insets for notched phones */
+@supports (padding: max(0px)) {
+  .navbar {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  .footer {
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
   }
 }

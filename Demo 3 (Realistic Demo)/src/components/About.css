@@ -187,16 +187,77 @@
   }
 }
 
+@media (max-width: 768px) {
+  .about {
+    padding: 5rem 0;
+  }
+
+  .about-container {
+    padding: 0 1.25rem;
+    gap: 3rem;
+  }
+
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-desc {
+    font-size: 0.9rem;
+  }
+
+  .about-features {
+    gap: 1rem;
+    margin: 1.5rem 0;
+    padding: 1.5rem 0;
+  }
+
+  .feature-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+  }
+
+  .about-cta {
+    width: 100%;
+    text-align: center;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .cta-phone {
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 576px) {
+  .about {
+    padding: 4rem 0;
+  }
+
+  .about-image-stack {
+    padding: 1rem;
+  }
+
   .image-frame.main img {
-    height: 350px;
+    height: 280px;
   }
 
   .image-frame.secondary {
-    width: 150px;
+    width: 120px;
+    bottom: -20px;
+    right: -10px;
   }
 
   .image-frame.secondary img {
-    height: 180px;
+    height: 150px;
+  }
+
+  .floating-badge {
+    width: 60px;
+    height: 60px;
+  }
+
+  .floating-badge img {
+    width: 45px;
+    height: 45px;
   }
 }
