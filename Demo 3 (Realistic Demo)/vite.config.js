@@ -6,6 +6,10 @@ export default defineConfig({
   preview: {
     port: process.env.PORT || 4173,
     host: true,
+    allowedHosts: 'all',
+  },
+  server: {
+    host: true,
   },
   build: {
     outDir: 'dist',
