@@ -16,7 +16,7 @@ function App() {
   }, [])
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className={`app ${isLoaded ? 'loaded' : ''}`}>
         <Routes>
           <Route path="/" element={<Layout />}>
