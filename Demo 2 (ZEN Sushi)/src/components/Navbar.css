@@ -327,7 +327,11 @@
 
 @media (max-width: 480px) {
   .navbar-container {
-    padding: 0 1rem;
+    padding: 0 1.25rem;
+  }
+
+  .mobile-menu-btn {
+    margin-right: -0.25rem;
   }
 
   .logo-kanji {

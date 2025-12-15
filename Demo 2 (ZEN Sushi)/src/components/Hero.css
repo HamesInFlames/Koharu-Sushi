@@ -181,15 +181,26 @@
     padding: 6rem 1.5rem 4rem;
   }
 
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
   .hero-actions {
     flex-direction: column;
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
+    margin: 0 auto;
+    align-items: center;
   }
 
   .btn {
     width: 100%;
     text-align: center;
+    justify-content: center;
+    padding: 1.125rem 2rem;
+    min-height: 52px;
   }
 
   .hero-stats {
