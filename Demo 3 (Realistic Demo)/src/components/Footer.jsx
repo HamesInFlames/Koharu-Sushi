@@ -7,8 +7,8 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-brand">
             <div className="logo">
-              <span className="logo-kanji">禅</span>
-              <span className="logo-text">ZEN SUSHI</span>
+              <span className="logo-kanji">小春</span>
+              <span className="logo-text">KOHARU</span>
             </div>
             <p className="footer-tagline">
               Artisanal Japanese cuisine crafted with devotion
@@ -47,7 +47,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; 2024 Zen Sushi. All rights reserved.</p>
+          <p>&copy; 2024 Koharu Japanese Restaurant. All rights reserved.</p>
           <div className="footer-legal">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>

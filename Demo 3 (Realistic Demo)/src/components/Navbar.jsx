@@ -24,8 +24,8 @@ const Navbar = () => {
         </div>
 
         <a href="#" className="logo">
-          <span className="logo-kanji">禅</span>
-          <span className="logo-text">ZEN SUSHI</span>
+          <span className="logo-kanji">小春</span>
+          <span className="logo-text">KOHARU</span>
         </a>
 
         <div className="nav-section right">

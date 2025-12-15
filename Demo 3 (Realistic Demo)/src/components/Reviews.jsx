@@ -7,7 +7,7 @@ const reviews = [
     rating: 5
   },
   {
-    text: "Zen Sushi brings Tokyo's finest traditions to Toronto. Master Yamamoto's knife skills are truly mesmerizing.",
+    text: "Koharu brings Tokyo's finest traditions to Toronto. The chef's knife skills are truly mesmerizing.",
     author: "BlogTO",
     rating: 5
   },
