@@ -8,6 +8,11 @@
   transition: all 0.4s ease;
 }
 
+/* When mobile menu is open, keep navbar on top */
+body.menu-open .navbar {
+  background: var(--color-bg);
+}
+
 .navbar.scrolled {
   background: rgba(15, 15, 15, 0.95);
   backdrop-filter: blur(20px);
@@ -151,12 +156,20 @@
 .mobile-nav {
   display: none;
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile browsers */
   background: var(--color-bg);
-  z-index: 1000;
+  z-index: 998;
   opacity: 0;
   visibility: hidden;
   transition: all 0.4s ease;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .mobile-nav.active {
@@ -169,7 +182,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  min-height: 100%;
+  padding: 5rem 2rem;
   gap: 2rem;
 }
 
@@ -200,6 +214,12 @@
 }
 
 @media (max-width: 1024px) {
+  .navbar {
+    background: rgba(15, 15, 15, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 0;
+  }
+
   .nav-links,
   .nav-order-btn {
     display: none;
@@ -209,6 +229,16 @@
     justify-content: center;
   }
 
+  .logo-img {
+    height: 50px;
+    width: 50px;
+  }
+
+  .navbar.scrolled .logo-img {
+    height: 45px;
+    width: 45px;
+  }
+
   .menu-toggle {
     display: flex;
   }
@@ -216,4 +246,11 @@
   .mobile-nav {
     display: block;
   }
+}
+
+/* Lock body scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+  height: 100vh;
+  height: 100dvh;
 }

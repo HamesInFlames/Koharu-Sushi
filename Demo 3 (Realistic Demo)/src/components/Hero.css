@@ -166,9 +166,19 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    min-height: 100svh; /* Small viewport height for mobile */
+  }
+
+  .hero-content {
+    padding: 6rem 1.5rem 4rem;
+  }
+
   .hero-info {
     flex-direction: column;
     gap: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
   }
 
   .info-divider {
@@ -184,5 +194,19 @@
   .hero-cta .btn {
     width: 100%;
     max-width: 280px;
+  }
+
+  /* Hide scroll indicator on mobile */
+  .hero-scroll {
+    display: none;
+  }
+
+  .title-large {
+    font-size: clamp(3.5rem, 18vw, 6rem);
+  }
+
+  .hero-tagline {
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
   }
 }
