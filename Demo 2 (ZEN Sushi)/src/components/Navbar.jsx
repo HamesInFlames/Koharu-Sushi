@@ -13,6 +13,16 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.classList.add('menu-open')
+    } else {
+      document.body.classList.remove('menu-open')
+    }
+    return () => document.body.classList.remove('menu-open')
+  }, [isMobileMenuOpen])
+
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
@@ -54,18 +64,25 @@ const Navbar = () => {
         </button>
 
         <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-          <a href="#philosophy" onClick={() => setIsMobileMenuOpen(false)}>Philosophy</a>
-          <a href="#menu" onClick={() => setIsMobileMenuOpen(false)}>Menu</a>
-          <a href="#gallery" onClick={() => setIsMobileMenuOpen(false)}>Gallery</a>
-          <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
-          <a 
-            href="https://www.ubereats.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="mobile-order-btn"
-          >
-            Order Online
-          </a>
+          <div className="mobile-menu-content">
+            <a href="#philosophy" onClick={() => setIsMobileMenuOpen(false)}>Philosophy</a>
+            <a href="#menu" onClick={() => setIsMobileMenuOpen(false)}>Menu</a>
+            <a href="#gallery" onClick={() => setIsMobileMenuOpen(false)}>Gallery</a>
+            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
+            <div className="mobile-menu-actions">
+              <a href="tel:+11234567890" className="mobile-action-btn">
+                Reserve Table
+              </a>
+              <a 
+                href="https://www.ubereats.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="mobile-action-btn primary"
+              >
+                Order Takeout
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
