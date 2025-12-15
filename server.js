@@ -1,13 +1,25 @@
 import express from 'express';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+import { existsSync, readdirSync } from 'fs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Check if dist folder exists
+const distPath = join(__dirname, 'dist');
+console.log('Checking dist folder:', distPath);
+console.log('Dist folder exists:', existsSync(distPath));
+
+if (existsSync(distPath)) {
+  console.log('Dist contents:', readdirSync(distPath));
+} else {
+  console.error('ERROR: dist folder does not exist!');
+}
+
 // Serve static files from dist folder
-app.use(express.static(join(__dirname, 'dist')));
+app.use(express.static(distPath));
 
 // SPA fallback for main hub
 app.get('/', (req, res) => {
