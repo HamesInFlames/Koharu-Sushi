@@ -19,7 +19,7 @@ const About = () => {
               />
             </div>
             <div className="floating-badge">
-              <img src="/logo.jpeg" alt="Koharu" />
+              <img src={`${import.meta.env.BASE_URL}logo.jpeg`} alt="Koharu" />
             </div>
           </div>
         </div>

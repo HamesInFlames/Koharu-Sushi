@@ -32,7 +32,7 @@ const Navbar = () => {
         </ul>
 
         <a href="#" className="logo">
-          <img src="/logo.jpeg" alt="Koharu" className="logo-img" />
+          <img src={`${import.meta.env.BASE_URL}logo.jpeg`} alt="Koharu" className="logo-img" />
         </a>
 
         <ul className="nav-links nav-right">

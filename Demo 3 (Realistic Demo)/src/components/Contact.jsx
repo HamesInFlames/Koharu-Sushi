@@ -64,7 +64,7 @@ const Contact = () => {
                   @koharu.schomberg
                 </a>
                 <div className="qr-code">
-                  <img src="/instagram-qr.jpeg" alt="Instagram QR" />
+                  <img src={`${import.meta.env.BASE_URL}instagram-qr.jpeg`} alt="Instagram QR" />
                 </div>
               </div>
             </div>

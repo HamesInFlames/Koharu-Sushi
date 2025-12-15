@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-main">
           <div className="footer-brand">
-            <img src="/logo.jpeg" alt="Koharu" className="footer-logo" />
+            <img src={`${import.meta.env.BASE_URL}logo.jpeg`} alt="Koharu" className="footer-logo" />
             <p className="brand-tagline">
               Authentic Japanese cuisine in the heart of Schomberg, Ontario.
             </p>
@@ -56,7 +56,7 @@ const Footer = () => {
                 Instagram
               </a>
               <div className="footer-qr">
-                <img src="/instagram-qr.jpeg" alt="Instagram QR" />
+                <img src={`${import.meta.env.BASE_URL}instagram-qr.jpeg`} alt="Instagram QR" />
               </div>
             </div>
           </div>
