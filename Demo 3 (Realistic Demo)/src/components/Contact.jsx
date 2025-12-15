@@ -1,106 +1,122 @@
 import './Contact.css'
 
+const hours = [
+  { day: 'Monday', time: '11:30 AM – 9:00 PM' },
+  { day: 'Tuesday', time: 'Closed', closed: true },
+  { day: 'Wednesday', time: '11:30 AM – 9:00 PM' },
+  { day: 'Thursday', time: '11:30 AM – 9:00 PM' },
+  { day: 'Friday', time: '11:30 AM – 9:30 PM' },
+  { day: 'Saturday', time: '11:30 AM – 9:30 PM' },
+  { day: 'Sunday', time: '11:30 AM – 9:00 PM' },
+]
+
 const Contact = () => {
+  const today = new Date().toLocaleDateString('en-US', { weekday: 'long' })
+
   return (
     <section id="contact" className="contact">
       <div className="container">
+        <div className="contact-header">
+          <span className="section-label">Visit Us</span>
+          <h2 className="contact-title">
+            Find <span className="gold-text">Koharu</span>
+          </h2>
+        </div>
+
         <div className="contact-grid">
+          {/* Left Column - Info */}
           <div className="contact-info">
-            <span className="section-label">Visit Us</span>
-            <h2 className="contact-title">Reservations</h2>
-            <p className="contact-description">
-              Join us for an unforgettable dining experience. 
-              For parties of 6 or more, please call directly.
-            </p>
-
-            <div className="contact-details">
-              <div className="detail-block">
-                <h4>Downtown Location</h4>
-                <p>123 Queen Street West<br/>Toronto, ON M5H 2M9</p>
-                <p className="detail-phone">(416) 555-0123</p>
-              </div>
-
-              <div className="detail-block">
-                <h4>Midtown Location</h4>
-                <p>456 Yonge Street<br/>Toronto, ON M4Y 1X8</p>
-                <p className="detail-phone">(416) 555-0456</p>
-              </div>
-
-              <div className="detail-block">
-                <h4>Hours</h4>
-                <p>
-                  Tue - Thu: 5:00 PM - 10:00 PM<br/>
-                  Fri - Sat: 5:00 PM - 11:00 PM<br/>
-                  Sun: 5:00 PM - 9:00 PM<br/>
-                  <span className="closed">Monday: Closed</span>
-                </p>
+            <div className="info-block">
+              <div className="block-icon">📍</div>
+              <div className="block-content">
+                <h4>Address</h4>
+                <p>50 Doctor Kay Dr</p>
+                <p>Schomberg, Ontario</p>
+                <a 
+                  href="https://www.google.com/maps/search/50+Doctor+Kay+Dr+Schomberg+Ontario"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="directions-link"
+                >
+                  Get Directions →
+                </a>
               </div>
             </div>
 
-            <div className="order-online">
-              <h4>Order Online</h4>
-              <div className="order-buttons">
+            <div className="info-block">
+              <div className="block-icon">📞</div>
+              <div className="block-content">
+                <h4>Phone</h4>
+                <a href="tel:9055902888" className="phone-number">(905) 590-2888</a>
               </div>
+            </div>
+
+            <div className="info-block">
+              <div className="block-icon">📱</div>
+              <div className="block-content">
+                <h4>Follow Us</h4>
+                <a 
+                  href="https://www.instagram.com/koharu.schomberg/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="instagram-link"
+                >
+                  @koharu.schomberg
+                </a>
+                <div className="qr-code">
+                  <img src="/instagram-qr.jpeg" alt="Instagram QR" />
+                </div>
+              </div>
+            </div>
+
+            <div className="order-block">
+              <h4>Order Online</h4>
+              <a 
+                href="https://www.ubereats.com/ca/store/koharu-japanese-restaurant-50-doctor-kay-drive-schomberg-on-l0g-1t0-canada/Ys_q91RfV_6WJyk9Cy5V9A?diningMode=DELIVERY"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
+                Order on UberEats
+              </a>
             </div>
           </div>
 
-          <div className="contact-form-wrapper">
-            <form className="contact-form">
-              <h3>Make a Reservation</h3>
-              
-              <div className="form-row">
-                <div className="form-group">
-                  <label>Name</label>
-                  <input type="text" placeholder="Your name" />
+          {/* Middle Column - Hours */}
+          <div className="contact-hours">
+            <h3>Hours of Operation</h3>
+            <div className="hours-list">
+              {hours.map((item, idx) => (
+                <div 
+                  key={idx} 
+                  className={`hours-row ${item.closed ? 'closed' : ''} ${item.day === today ? 'today' : ''}`}
+                >
+                  <span className="day">{item.day}</span>
+                  <span className="time">{item.time}</span>
                 </div>
-                <div className="form-group">
-                  <label>Phone</label>
-                  <input type="tel" placeholder="Phone number" />
-                </div>
-              </div>
+              ))}
+            </div>
+            <div className="allergen-notice">
+              <p>
+                ⚠️ <strong>Please be advised:</strong> Food prepared here may contain 
+                sesame, fish eggs, dairy products, etc.
+              </p>
+            </div>
+          </div>
 
-              <div className="form-row">
-                <div className="form-group">
-                  <label>Date</label>
-                  <input type="date" />
-                </div>
-                <div className="form-group">
-                  <label>Time</label>
-                  <select>
-                    <option>5:00 PM</option>
-                    <option>5:30 PM</option>
-                    <option>6:00 PM</option>
-                    <option>6:30 PM</option>
-                    <option>7:00 PM</option>
-                    <option>7:30 PM</option>
-                    <option>8:00 PM</option>
-                    <option>8:30 PM</option>
-                    <option>9:00 PM</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="form-group">
-                <label>Party Size</label>
-                <select>
-                  <option>1 Guest</option>
-                  <option>2 Guests</option>
-                  <option>3 Guests</option>
-                  <option>4 Guests</option>
-                  <option>5 Guests</option>
-                  <option>6+ Guests (Please Call)</option>
-                </select>
-              </div>
-
-              <div className="form-group">
-                <label>Special Requests</label>
-                <textarea placeholder="Allergies, celebrations, etc." rows="3"></textarea>
-              </div>
-
-              <button type="submit" className="submit-btn">
-                Request Reservation
-              </button>
-            </form>
+          {/* Right Column - Map */}
+          <div className="contact-map">
+            <div className="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2867.5!2d-79.6814552!3d44.0061368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882adf2292ed9539%3A0x7d70b4a55e7e7f9!2sKOHARU%20Japanese%20Restaurant!5e0!3m2!1sen!2sca!4v1702684800000!5m2!1sen!2sca"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                title="Koharu Location"
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
@@ -109,4 +125,3 @@ const Contact = () => {
 }
 
 export default Contact
-

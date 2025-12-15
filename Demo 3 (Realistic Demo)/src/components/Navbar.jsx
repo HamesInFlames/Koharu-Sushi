@@ -7,7 +7,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80)
+      setIsScrolled(window.scrollY > 50)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -15,57 +15,57 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="navbar-container">
-        <div className="nav-section left">
-          <ul className="nav-links">
-            <li><a href="#philosophy" onClick={() => setIsMobileMenuOpen(false)}>Philosophy</a></li>
-            <li><a href="#menu" onClick={() => setIsMobileMenuOpen(false)}>Menu</a></li>
-          </ul>
-        </div>
+      <div className="navbar-inner">
+        <ul className="nav-links nav-left">
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+        </ul>
 
         <a href="#" className="logo">
-          <span className="logo-kanji">小春</span>
-          <span className="logo-text">KOHARU</span>
+          <img src="/logo.jpeg" alt="Koharu" className="logo-img" />
         </a>
 
-        <div className="nav-section right">
-          <ul className="nav-links">
-            <li><a href="#gallery" onClick={() => setIsMobileMenuOpen(false)}>Gallery</a></li>
-            <li><a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a></li>
-          </ul>
-        </div>
+        <ul className="nav-links nav-right">
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
 
         <a 
-          href="https://www.ubereats.com" 
+          href="https://www.ubereats.com/ca/store/koharu-japanese-restaurant-50-doctor-kay-drive-schomberg-on-l0g-1t0-canada/Ys_q91RfV_6WJyk9Cy5V9A?diningMode=DELIVERY" 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="order-btn"
+          className="nav-order-btn"
         >
           Order
         </a>
 
         <button 
-          className={`mobile-menu-btn ${isMobileMenuOpen ? 'active' : ''}`}
+          className={`menu-toggle ${isMobileMenuOpen ? 'active' : ''}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
         >
           <span></span>
           <span></span>
+          <span></span>
         </button>
+      </div>
 
-        <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-          <a href="#philosophy" onClick={() => setIsMobileMenuOpen(false)}>Philosophy</a>
+      <div className={`mobile-nav ${isMobileMenuOpen ? 'active' : ''}`}>
+        <div className="mobile-nav-content">
+          <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</a>
           <a href="#menu" onClick={() => setIsMobileMenuOpen(false)}>Menu</a>
           <a href="#gallery" onClick={() => setIsMobileMenuOpen(false)}>Gallery</a>
           <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
-          <a 
-            href="https://www.ubereats.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="mobile-order-btn"
-          >
-            Order Online
-          </a>
+          <div className="mobile-nav-footer">
+            <a href="tel:9055902888" className="mobile-phone">(905) 590-2888</a>
+            <a 
+              href="https://www.ubereats.com/ca/store/koharu-japanese-restaurant-50-doctor-kay-drive-schomberg-on-l0g-1t0-canada/Ys_q91RfV_6WJyk9Cy5V9A?diningMode=DELIVERY" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              Order Online
+            </a>
+          </div>
         </div>
       </div>
     </nav>

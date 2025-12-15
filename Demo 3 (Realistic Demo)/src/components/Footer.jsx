@@ -1,57 +1,72 @@
 import './Footer.css'
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer-content">
+        <div className="footer-main">
           <div className="footer-brand">
-            <div className="logo">
-              <span className="logo-kanji">小春</span>
-              <span className="logo-text">KOHARU</span>
-            </div>
-            <p className="footer-tagline">
-              Artisanal Japanese cuisine crafted with devotion
+            <img src="/logo.jpeg" alt="Koharu" className="footer-logo" />
+            <p className="brand-tagline">
+              Authentic Japanese cuisine in the heart of Schomberg, Ontario.
             </p>
+            <div className="brand-contact">
+              <a href="tel:9055902888" className="phone-link">(905) 590-2888</a>
+              <p>50 Doctor Kay Dr, Schomberg</p>
+            </div>
           </div>
 
-          <div className="footer-links-group">
-            <div className="footer-links">
+          <div className="footer-links">
+            <div className="link-group">
               <h4>Navigate</h4>
-              <ul>
-                <li><a href="#philosophy">Philosophy</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
-              </ul>
+              <a href="#about">About Us</a>
+              <a href="#menu">Our Menu</a>
+              <a href="#gallery">Gallery</a>
+              <a href="#contact">Contact</a>
             </div>
 
-            <div className="footer-links">
-              <h4>Order Online</h4>
-              <ul>
-                <li><a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer">UberEats</a></li>
-                <li><a href="https://www.doordash.com" target="_blank" rel="noopener noreferrer">DoorDash</a></li>
-                <li><a href="https://www.skipthedishes.com" target="_blank" rel="noopener noreferrer">SkipTheDishes</a></li>
-              </ul>
+            <div className="link-group">
+              <h4>Order</h4>
+              <a 
+                href="https://www.ubereats.com/ca/store/koharu-japanese-restaurant-50-doctor-kay-drive-schomberg-on-l0g-1t0-canada/Ys_q91RfV_6WJyk9Cy5V9A?diningMode=DELIVERY"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Delivery
+              </a>
+              <a 
+                href="https://www.ubereats.com/ca/store/koharu-japanese-restaurant-50-doctor-kay-drive-schomberg-on-l0g-1t0-canada/Ys_q91RfV_6WJyk9Cy5V9A?diningMode=PICKUP"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Pickup
+              </a>
+              <a href="tel:9055902888">Call to Order</a>
             </div>
 
-            <div className="footer-links">
-              <h4>Follow Us</h4>
-              <ul>
-                <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                <li><a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">TikTok</a></li>
-              </ul>
+            <div className="link-group">
+              <h4>Connect</h4>
+              <a 
+                href="https://www.instagram.com/koharu.schomberg/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+              <div className="footer-qr">
+                <img src="/instagram-qr.jpeg" alt="Instagram QR" />
+              </div>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; 2024 Koharu Japanese Restaurant. All rights reserved.</p>
-          <div className="footer-legal">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-          </div>
+          <p className="copyright">© {currentYear} Koharu Japanese Restaurant. All rights reserved.</p>
+          <p className="allergen">
+            ⚠️ Food may contain: sesame, fish eggs, dairy products, etc.
+          </p>
         </div>
       </div>
     </footer>
@@ -59,4 +74,3 @@ const Footer = () => {
 }
 
 export default Footer
-
