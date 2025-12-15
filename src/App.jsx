@@ -2,16 +2,17 @@ import { useState, useEffect } from 'react'
 import './App.css'
 
 // Configuration for demo URLs
-// Update these with your Railway URLs after deployment
 const isProduction = import.meta.env.PROD
 
 const getDemoUrl = (demoId) => {
+  // In production, demos are served from subfolders
   const productionUrls = {
-    1: import.meta.env.VITE_DEMO1_URL || '#',
-    2: import.meta.env.VITE_DEMO2_URL || '#', 
-    3: import.meta.env.VITE_DEMO3_URL || '#',
+    1: '/demo1/',
+    2: '/demo2/', 
+    3: '/demo3/',
   }
   
+  // In development, each demo runs on its own port
   const localUrls = {
     1: 'http://localhost:5174',
     2: 'http://localhost:5175',
