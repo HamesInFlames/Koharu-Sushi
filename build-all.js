@@ -32,12 +32,6 @@ for (const demo of demos) {
 
   console.log(`📦 Building ${demo.name}...`);
   
-  // Install dependencies if needed
-  if (!existsSync(join(demoPath, 'node_modules'))) {
-    console.log(`   Installing dependencies...`);
-    execSync('npm install', { stdio: 'inherit', cwd: demoPath });
-  }
-  
   // Build with base path set to the subfolder
   execSync(`npx vite build --base=/${demo.folder}/`, { 
     stdio: 'inherit', 

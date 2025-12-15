@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "postinstall": "node install-all.js",
     "build": "node build-all.js",
     "build:hub": "vite build",
     "preview": "vite preview",
