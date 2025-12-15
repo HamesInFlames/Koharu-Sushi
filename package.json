@@ -9,12 +9,11 @@
     "build": "node build-all.js",
     "build:hub": "vite build",
     "preview": "vite preview",
-    "start": "node start.js"
+    "start": "vite preview"
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "serve-handler": "^6.1.5"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.7.0",
