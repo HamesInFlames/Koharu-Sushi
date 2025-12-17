@@ -31,3 +31,4 @@ for (const demo of demos) {
 }
 
 console.log('🎉 All demo dependencies installed!');
+

@@ -71,7 +71,7 @@ function App() {
       <header className="header">
         <div className="header-content">
           <div className="logo">
-            <span className="logo-en">Kim Consultant</span>
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Kim Consultant" className="logo-img" />
           </div>
           <p className="tagline">Landing Essentials • Single-Page Website Package</p>
         </div>
