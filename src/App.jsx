@@ -135,6 +135,96 @@ function App() {
           ))}
         </section>
 
+        <section className="landing-section">
+          <div className="landing-header">
+            <h2 className="landing-title">Landing Essentials Package</h2>
+            <p className="landing-subtitle">
+              A simple, all-in-one single-page website — perfect for service businesses, events, or personal brands.
+            </p>
+          </div>
+
+          <div className="landing-grid">
+            <div className="landing-main-card">
+              <div className="landing-price-row">
+                <div>
+                  <p className="landing-label">Landing Essentials</p>
+                  <p className="landing-price">
+                    $1,000 <span className="price-note">upfront</span>
+                  </p>
+                </div>
+                <div className="landing-maintenance">
+                  <span className="maint-amount">$100/mo</span>
+                  <span className="maint-note">required maintenance</span>
+                </div>
+              </div>
+
+              <div className="landing-columns">
+                <div className="landing-column">
+                  <h3>What you get</h3>
+                  <ul>
+                    <li>1-page responsive website (scroll-based layout)</li>
+                    <li>Hero section with headline and primary call-to-action</li>
+                    <li>About / intro section</li>
+                    <li>Services or features block</li>
+                    <li>Testimonials or social proof section</li>
+                    <li>Contact form + Google Maps embed</li>
+                    <li>Mobile-optimized design</li>
+                    <li>Fast-loading layout with basic on-page SEO</li>
+                    <li>Hosting, SSL, backups &amp; updates (through maintenance)</li>
+                  </ul>
+                </div>
+
+                <div className="landing-column">
+                  <h3>Maintenance (included in $100/mo)</h3>
+                  <ul>
+                    <li>Up to 1 content revision per month (text or images)</li>
+                    <li>Security updates, uptime monitoring &amp; backups</li>
+                    <li>Bug fixes and basic performance checks</li>
+                    <li>Email support with 48-hour response window</li>
+                  </ul>
+                  <p className="landing-note">
+                    Note: structural layout or design changes after launch are not included. 
+                    For bigger changes, you can apply the value of this package toward a full website upgrade.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <aside className="landing-side-card">
+              <p className="side-kicker">Need something simple &amp; fast?</p>
+              <h3 className="side-title">Try our Landing Essentials Package</h3>
+              <p className="side-text">
+                A professional, single-page website built to convert. Fixed price, fast turnaround, and fully managed for you.
+              </p>
+              <ul className="side-list">
+                <li>Fixed price, fast turnaround</li>
+                <li>Mobile-friendly &amp; SEO-ready</li>
+                <li>Hosting, updates &amp; support included</li>
+                <li>
+                  <strong>$100/mo maintenance is required</strong>
+                </li>
+              </ul>
+              <p className="side-footnote">
+                Great for service professionals, local shops, launches, or portfolio-style pages.
+              </p>
+              <button
+                type="button"
+                className="side-cta"
+                onClick={() => {
+                  const contactSection = document.getElementById('contact')
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' })
+                  } else {
+                    window.location.href = 'mailto:info@yourstudio.com?subject=Landing Essentials Website'
+                  }
+                }}
+              >
+                Get Started – Landing Essentials
+              </button>
+            </aside>
+          </div>
+        </section>
+
         {!isProduction && (
           <section className="instructions">
             <h3>Local Development</h3>
