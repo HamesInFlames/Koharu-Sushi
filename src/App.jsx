@@ -74,65 +74,20 @@ function App() {
             <span className="logo-jp">小春</span>
             <span className="logo-en">KOHARU</span>
           </div>
-          <p className="tagline">Website Demo Showcase</p>
+          <p className="tagline">Landing Essentials • Single-Page Website Package</p>
         </div>
       </header>
 
       <main className="main">
         <section className="intro">
           <h1 className="title">
-            <span className="title-line">Choose Your</span>
-            <span className="title-line accent">Demo Experience</span>
+            <span className="title-line">Landing Essentials</span>
+            <span className="title-line accent">Single-Page Website</span>
           </h1>
           <p className="subtitle">
-            Explore three unique website designs for a Japanese sushi restaurant. 
-            Each demo showcases different aesthetics and functionality.
+            A simple, all-in-one 1-page website built to convert — ideal for service businesses, events, and personal brands that
+            want a professional online presence without the complexity of a full multi-page site.
           </p>
-        </section>
-
-        <section className="demos">
-          {demos.map((demo, index) => (
-            <a
-              key={demo.id}
-              href={getDemoUrl(demo.id)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`demo-card ${hoveredCard === demo.id ? 'hovered' : ''}`}
-              style={{ 
-                '--card-color': demo.color,
-                '--card-accent': demo.accent,
-                animationDelay: `${index * 0.15}s`
-              }}
-              onMouseEnter={() => setHoveredCard(demo.id)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-              <div className="card-glow"></div>
-              <div className="card-content">
-                <div className="card-header">
-                  <span className="demo-number">{demo.subtitle}</span>
-                  <h2 className="demo-name">{demo.name}</h2>
-                  <span className="demo-style">{demo.style}</span>
-                </div>
-                
-                <p className="demo-description">{demo.description}</p>
-                
-                <div className="demo-features">
-                  {demo.features.map((feature, i) => (
-                    <span key={i} className="feature-tag">{feature}</span>
-                  ))}
-                </div>
-
-                <div className="card-footer">
-                  <span className="view-demo">
-                    View Demo
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </a>
-          ))}
         </section>
 
         <section className="landing-section">
@@ -223,6 +178,53 @@ function App() {
               </button>
             </aside>
           </div>
+        </section>
+
+        <section className="demos">
+          {demos.map((demo, index) => (
+            <a
+              key={demo.id}
+              href={getDemoUrl(demo.id)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`demo-card ${hoveredCard === demo.id ? 'hovered' : ''}`}
+              style={{ 
+                '--card-color': demo.color,
+                '--card-accent': demo.accent,
+                animationDelay: `${index * 0.15}s`
+              }}
+              onMouseEnter={() => setHoveredCard(demo.id)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              <div className="card-glow"></div>
+              <div className="card-content">
+                <div className="card-header">
+                  <span className="demo-number">{demo.subtitle}</span>
+                  <h2 className="demo-name">{demo.name}</h2>
+                  <span className="demo-style">{demo.style}</span>
+                </div>
+                
+                <p className="demo-description">
+                  {demo.description}
+                </p>
+                
+                <div className="demo-features">
+                  {demo.features.map((feature, i) => (
+                    <span key={i} className="feature-tag">{feature}</span>
+                  ))}
+                </div>
+
+                <div className="card-footer">
+                  <span className="view-demo">
+                    View Full Restaurant Demo
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+          ))}
         </section>
 
         {!isProduction && (
