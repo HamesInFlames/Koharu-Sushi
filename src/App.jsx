@@ -225,26 +225,6 @@ function App() {
             </a>
           ))}
         </section>
-
-        {!isProduction && (
-          <section className="instructions">
-            <h3>Local Development</h3>
-            <div className="instruction-cards">
-              <div className="instruction-card">
-                <span className="step-number">1</span>
-                <p>Make sure all demo servers are running</p>
-              </div>
-              <div className="instruction-card">
-                <span className="step-number">2</span>
-                <p>Click any card to open that demo</p>
-              </div>
-              <div className="instruction-card">
-                <span className="step-number">3</span>
-                <p>Explore and compare designs</p>
-              </div>
-            </div>
-          </section>
-        )}
       </main>
 
       <footer className="footer">
