@@ -71,8 +71,7 @@ function App() {
       <header className="header">
         <div className="header-content">
           <div className="logo">
-            <span className="logo-jp">小春</span>
-            <span className="logo-en">KOHARU</span>
+            <span className="logo-en">Kim Consultant</span>
           </div>
           <p className="tagline">Landing Essentials • Single-Page Website Package</p>
         </div>
@@ -249,7 +248,7 @@ function App() {
       </main>
 
       <footer className="footer">
-        <p>KOHARU Sushi Demo Showcase • Built with React + Vite</p>
+        <p>Kim Consultant • Landing Essentials Package</p>
       </footer>
     </div>
   )
