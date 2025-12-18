@@ -1,6 +1,6 @@
 # Kim Consultant - Landing Essentials Package
 
-A professional website showcase featuring the **Landing Essentials** single-page website package, along with three restaurant website demos.
+A professional website showcase featuring the **Landing Essentials** single-page website package, along with six restaurant website demos.
 
 🌐 **Live Site:** [kshconsultantpackage.up.railway.app](https://kshconsultantpackage.up.railway.app)
 
@@ -28,7 +28,7 @@ Kim Consultant offers the **Landing Essentials Package** - a simple, all-in-one 
 ### 🌸 Demo 1 - Sakura Sushi House
 **Theme:** Traditional & Elegant  
 **Features:**
-- Multi-page layout with React Router
+- Single-page layout with smooth scrolling
 - Cherry blossom inspired design
 - Photo gallery
 - Location map
@@ -48,6 +48,30 @@ Kim Consultant offers the **Landing Essentials Package** - a simple, all-in-one 
 - Real contact information
 - Online ordering integration (Uber Eats)
 - Instagram QR code
+
+### 🔥 Demo 4 - Seoul Fire Korean BBQ
+**Theme:** Bold & Traditional  
+**Features:**
+- Korean BBQ menu showcase
+- Sizzling meat imagery
+- Photo gallery
+- Location & hours
+
+### 🍕 Demo 5 - Bella Napoli Pizzeria
+**Theme:** Rustic & Welcoming  
+**Features:**
+- Wood-fired pizza menu
+- Italian pasta selection
+- Family tradition story
+- Online ordering
+
+### ☕ Demo 6 - Ember & Bloom Coffee
+**Theme:** Modern & Cozy  
+**Features:**
+- Specialty coffee menu
+- Artisan pastries
+- Eco-conscious messaging
+- Neighborhood cafe vibe
 
 ## Tech Stack
 
@@ -97,6 +121,9 @@ npm start
 ├── Demo 1 (Sakura Sushi House)/
 ├── Demo 2 (ZEN Sushi)/
 ├── Demo 3 (Realistic Demo)/
+├── Demo 4 (Korean BBQ)/
+├── Demo 5 (Italian Pizzeria)/
+├── Demo 6 (Coffee Shop)/
 ├── server.js               # Express server for production
 ├── build-all.js            # Build script for all projects
 └── install-all.js          # Install script for all demos
