@@ -1,9 +1,7 @@
-import 'dotenv/config';
 import express from 'express';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { existsSync, readdirSync } from 'fs';
-import { Resend } from 'resend';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -23,56 +21,6 @@ if (existsSync(distPath)) {
 } else {
   console.error('ERROR: dist folder does not exist!');
 }
-
-// Email endpoint using Resend
-app.post('/api/contact', async (req, res) => {
-  console.log('📧 Contact form submission received');
-  
-  try {
-    const { email, phone, message } = req.body;
-    console.log('Form data:', { email, phone, message: message ? '(provided)' : '(missing)' });
-
-    if (!email || !phone || !message) {
-      return res.status(400).json({ error: 'All fields are required' });
-    }
-
-    const resendApiKey = process.env.RESEND_API_KEY;
-
-    if (!resendApiKey) {
-      console.error('❌ RESEND_API_KEY not set. Cannot send email.');
-      return res.status(500).json({ 
-        error: 'Email service not configured. Please contact us directly at xoxoksh05@gmail.com' 
-      });
-    }
-
-    const resend = new Resend(resendApiKey);
-
-    const { data, error } = await resend.emails.send({
-      from: 'Kim Consultant <onboarding@resend.dev>',
-      to: 'xoxoksh05@gmail.com',
-      replyTo: email,
-      subject: 'Landing Essentials Package Inquiry',
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>From:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-      `
-    });
-
-    if (error) {
-      console.error('❌ Resend error:', error);
-      return res.status(500).json({ error: 'Failed to send email. Please try again later.' });
-    }
-
-    console.log('✅ Email sent successfully:', data);
-    res.json({ success: true, message: 'Email sent successfully' });
-  } catch (error) {
-    console.error('❌ Email send error:', error.message);
-    res.status(500).json({ error: 'Failed to send email. Please try again later or contact us directly at xoxoksh05@gmail.com' });
-  }
-});
 
 // Serve static files from dist folder
 app.use(express.static(distPath));
