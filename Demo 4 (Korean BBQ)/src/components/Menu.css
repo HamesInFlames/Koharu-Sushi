@@ -16,7 +16,16 @@
 
 .menu-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
+}
+
+.menu-header .section-label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.menu-header .section-title {
+  margin-bottom: 1.5rem;
 }
 
 .menu-subtitle {
@@ -126,6 +135,7 @@
   color: var(--color-text-muted);
   font-size: 0.875rem;
   margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
 .menu-item-price {
@@ -133,6 +143,8 @@
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--color-accent);
+  display: block;
+  margin-top: 0.5rem;
 }
 
 .menu-cta {
@@ -144,4 +156,5 @@
     grid-template-columns: 1fr;
   }
 }
+
 

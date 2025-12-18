@@ -6,13 +6,15 @@
   z-index: 1000;
   padding: 1rem 0;
   transition: all 0.3s ease;
-  background: transparent;
-}
-
-.navbar.scrolled {
   background: rgba(248, 246, 243, 0.95);
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.navbar.scrolled {
+  background: rgba(248, 246, 243, 0.98);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.12);
 }
 
 .navbar-container {
@@ -191,4 +193,5 @@ body.menu-open {
   height: 100vh;
   height: 100dvh;
 }
+
 

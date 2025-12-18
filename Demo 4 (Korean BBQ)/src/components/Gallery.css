@@ -5,7 +5,16 @@
 
 .gallery-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
+}
+
+.gallery-header .section-label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.gallery-header .section-title {
+  margin-bottom: 1.5rem;
 }
 
 .gallery-grid {
@@ -21,8 +30,13 @@
   border-radius: 0;
   overflow: hidden;
   cursor: pointer;
-  border: 3px solid var(--color-primary);
-  background: var(--color-primary);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  transition: border-color 0.3s ease;
+}
+
+.gallery-item:hover {
+  border-color: var(--color-primary);
 }
 
 .gallery-item:nth-child(1) {
@@ -132,4 +146,5 @@
     aspect-ratio: 1;
   }
 }
+
 
