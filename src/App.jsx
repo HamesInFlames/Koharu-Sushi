@@ -75,7 +75,14 @@ function App() {
   const scrollToSection = (id) => {
     const element = document.getElementById(id)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      const offset = 200 // Account for fixed navbar with large logo
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - offset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
     }
   }
 
@@ -232,12 +239,12 @@ function App() {
                   </div>
 
                   <div className="card-footer">
-                    <button className="demo-cta-btn">
+                    <div className="demo-cta-btn">
                       View Demo
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                       </svg>
-                    </button>
+                    </div>
                   </div>
                 </div>
               </a>

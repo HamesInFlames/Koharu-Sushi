@@ -37,7 +37,7 @@
 .navbar-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,7 +48,7 @@
 }
 
 .navbar .logo-img {
-  height: 50px;
+  height: 150px;
 }
 
 .nav-links {
@@ -91,7 +91,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 6rem 2rem 3rem;
-  margin-top: 70px;
+  margin-top: 180px;
 }
 
 /* Intro Section */
@@ -132,6 +132,7 @@
 .landing-section {
   margin-bottom: 5rem;
   padding: 0;
+  scroll-margin-top: 200px;
 }
 
 .landing-header {
@@ -351,6 +352,7 @@
 /* Demo Cards */
 .demos {
   margin-bottom: 5rem;
+  scroll-margin-top: 200px;
 }
 
 .demos-header {
@@ -500,13 +502,13 @@
   color: var(--color-accent-1);
   font-size: 0.9375rem;
   font-weight: 600;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   transition: all 0.3s ease;
   font-family: var(--font-body);
+  pointer-events: none;
 }
 
 .demo-cta-btn svg {
@@ -523,6 +525,7 @@
 .contact-section {
   margin: 6rem 0 4rem;
   padding: 0;
+  scroll-margin-top: 200px;
 }
 
 .contact-container {
@@ -722,7 +725,7 @@
   }
 
   .navbar .logo-img {
-    height: 40px;
+    height: 100px;
   }
 
   .nav-links {
@@ -731,8 +734,8 @@
   }
 
   .main {
-    margin-top: 60px;
-    padding-top: 4rem;
+    margin-top: 140px;
+    padding-top: 3rem;
   }
 
   .logo-img {
@@ -809,6 +812,10 @@
 @media (max-width: 480px) {
   .navbar-container {
     padding: 0.875rem 1.25rem;
+  }
+
+  .navbar .logo-img {
+    height: 80px;
   }
 
   .nav-links {
