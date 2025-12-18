@@ -268,33 +268,37 @@ function App() {
               </p>
             </div>
 
-            <form className="contact-form" onSubmit={(e) => {
+            <form className="contact-form" onSubmit={async (e) => {
               e.preventDefault()
+              setFormStatus({ submitting: true, success: false, error: null })
               
               const formData = new FormData(e.target)
               const email = formData.get('email')
               const phone = formData.get('phone')
               const message = formData.get('message')
 
-              // Create mailto link with form data
-              const subject = encodeURIComponent('Landing Essentials Package Inquiry')
-              const body = encodeURIComponent(`Hi,
+              try {
+                const response = await fetch('/api/contact', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ email, phone, message })
+                })
 
-${message}
+                const data = await response.json()
 
----
-From: ${email}
-Phone: ${phone}`)
-              
-              window.location.href = `mailto:xoxoksh05@gmail.com?subject=${subject}&body=${body}`
-              
-              setFormStatus({ submitting: false, success: true, error: null })
-              e.target.reset()
-              
-              // Reset success message after 5 seconds
-              setTimeout(() => {
-                setFormStatus({ submitting: false, success: false, error: null })
-              }, 5000)
+                if (!response.ok) {
+                  throw new Error(data.error || 'Failed to send')
+                }
+                
+                setFormStatus({ submitting: false, success: true, error: null })
+                e.target.reset()
+                
+                setTimeout(() => {
+                  setFormStatus({ submitting: false, success: false, error: null })
+                }, 5000)
+              } catch (error) {
+                setFormStatus({ submitting: false, success: false, error: error.message })
+              }
             }}>
               <div className="form-row">
                 <div className="form-group">
@@ -339,15 +343,16 @@ Phone: ${phone}`)
 
               {formStatus.success && (
                 <div className="form-message form-success">
-                  ✓ Email app opened! Please send the email to complete your inquiry.
+                  ✓ Message sent! We'll get back to you within 48 hours.
                 </div>
               )}
 
               <button 
                 type="submit" 
                 className="form-submit-btn"
+                disabled={formStatus.submitting}
               >
-                Send Message
+                {formStatus.submitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
