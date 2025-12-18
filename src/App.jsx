@@ -110,13 +110,6 @@ function App() {
         </section>
 
         <section id="package" className="landing-section">
-          <div className="landing-header">
-            <h2 className="landing-title">Landing Essentials Package</h2>
-            <p className="landing-subtitle">
-              A simple, all-in-one single-page website — perfect for service businesses, events, or personal brands.
-            </p>
-          </div>
-
           <div className="landing-grid">
             <div className="landing-main-card">
               <div className="landing-price-row">
