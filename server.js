@@ -25,8 +25,11 @@ if (existsSync(distPath)) {
 
 // Email endpoint
 app.post('/api/contact', async (req, res) => {
+  console.log('📧 Contact form submission received');
+  
   try {
     const { email, phone, message } = req.body;
+    console.log('Form data:', { email, phone, message: message ? '(provided)' : '(missing)' });
 
     if (!email || !phone || !message) {
       return res.status(400).json({ error: 'All fields are required' });
@@ -38,7 +41,10 @@ app.post('/api/contact', async (req, res) => {
     const emailPass = process.env.EMAIL_PASS || process.env.GMAIL_APP_PASSWORD
 
     if (!emailPass) {
-      console.warn('⚠️ EMAIL_PASS not set. Email sending will fail. Set Gmail app password in Railway environment variables.')
+      console.error('❌ EMAIL_PASS not set. Cannot send email.');
+      return res.status(500).json({ 
+        error: 'Email service not configured. Please contact us directly at xoxoksh05@gmail.com' 
+      });
     }
 
     const transporter = nodemailer.createTransport({
@@ -50,8 +56,9 @@ app.post('/api/contact', async (req, res) => {
     });
 
     const mailOptions = {
-      from: process.env.EMAIL_USER || 'xoxoksh05@gmail.com',
+      from: emailUser,
       to: 'xoxoksh05@gmail.com',
+      replyTo: email,
       subject: 'Landing Essentials Package Inquiry',
       text: `New inquiry from contact form:\n\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`,
       html: `
@@ -64,10 +71,11 @@ app.post('/api/contact', async (req, res) => {
     };
 
     await transporter.sendMail(mailOptions);
+    console.log('✅ Email sent successfully');
     res.json({ success: true, message: 'Email sent successfully' });
   } catch (error) {
-    console.error('Email send error:', error);
-    res.status(500).json({ error: 'Failed to send email. Please try again later.' });
+    console.error('❌ Email send error:', error.message);
+    res.status(500).json({ error: 'Failed to send email. Please try again later or contact us directly at xoxoksh05@gmail.com' });
   }
 });
 
