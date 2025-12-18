@@ -201,7 +201,7 @@
   font-size: 1rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--color-accent-1);
+  color: var(--color-accent-2);
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -230,7 +230,7 @@
   padding: 1rem;
   background: var(--color-surface);
   border-radius: 8px;
-  border-left: 3px solid var(--color-accent-1);
+  border-left: 3px solid var(--color-accent-2);
 }
 
 .landing-side-card {
@@ -299,18 +299,18 @@
   border-radius: 8px;
   border: none;
   background: var(--color-accent-1);
-  color: white;
+  color: var(--color-text);
   font-size: 0.9375rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 2px 4px rgba(201, 169, 97, 0.2);
 }
 
 .side-cta:hover {
   background: var(--color-accent-2);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
 }
 
 .side-cta:active {
@@ -361,7 +361,7 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-accent-1);
+  color: var(--color-accent-2);
   background: var(--color-surface);
   padding: 0.375rem 0.75rem;
   border-radius: 6px;
@@ -418,7 +418,7 @@
   align-items: center;
   gap: 0.5rem;
   font-weight: 600;
-  color: var(--color-accent-1);
+  color: var(--color-accent-2);
   font-size: 0.9375rem;
   transition: color 0.2s ease;
 }
@@ -430,7 +430,7 @@
 }
 
 .demo-card:hover .view-demo {
-  color: var(--color-accent-2);
+  color: var(--color-accent-1);
 }
 
 .demo-card:hover .view-demo svg {
@@ -458,7 +458,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-accent-1);
+  color: var(--color-accent-2);
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -524,7 +524,7 @@
 .form-group textarea:focus {
   outline: none;
   border-color: var(--color-accent-1);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
 }
 
 .form-group input::placeholder,
@@ -542,7 +542,7 @@
   width: 100%;
   padding: 1rem 2rem;
   background: var(--color-accent-1);
-  color: white;
+  color: var(--color-text);
   border: none;
   border-radius: 8px;
   font-family: var(--font-body);
@@ -551,13 +551,13 @@
   cursor: pointer;
   transition: all 0.2s ease;
   margin-top: 1rem;
-  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 2px 4px rgba(201, 169, 97, 0.2);
 }
 
 .form-submit-btn:hover {
   background: var(--color-accent-2);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
 }
 
 .form-submit-btn:active {
