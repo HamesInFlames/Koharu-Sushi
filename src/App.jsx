@@ -169,7 +169,7 @@ function App() {
                   if (contactSection) {
                     contactSection.scrollIntoView({ behavior: 'smooth' })
                   } else {
-                    window.location.href = 'mailto:info@kimconsultant.com?subject=Landing Essentials Website'
+                    window.location.href = 'mailto:xoxoksh05@gmail.com?subject=Landing Essentials Website'
                   }
                 }}
               >
@@ -248,7 +248,7 @@ function App() {
               const body = encodeURIComponent(
                 `Email: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`
               )
-              window.location.href = `mailto:info@kimconsultant.com?subject=${subject}&body=${body}`
+              window.location.href = `mailto:xoxoksh05@gmail.com?subject=${subject}&body=${body}`
             }}>
               <div className="form-row">
                 <div className="form-group">
