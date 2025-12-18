@@ -394,6 +394,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  align-items: stretch;
 }
 
 .demo-card {
@@ -409,8 +410,10 @@
   transform: translateY(30px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  display: block;
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
+  height: 100%;
 }
 
 @keyframes fadeInUp {
@@ -481,13 +484,16 @@
   color: var(--color-text-muted);
   line-height: 1.7;
   margin: 1.5rem 0;
+  flex: 1;
+  min-height: 80px;
 }
 
 .demo-features {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  min-height: 60px;
 }
 
 .feature-tag {
@@ -500,10 +506,17 @@
   font-weight: 500;
 }
 
+.card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
+
 .card-footer {
   padding-top: 1.5rem;
   border-top: 1px solid var(--color-border);
-  margin-top: 1.5rem;
+  margin-top: auto;
 }
 
 .demo-cta-btn {
