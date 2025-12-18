@@ -2,10 +2,15 @@ import express from 'express';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { existsSync, readdirSync } from 'fs';
+import nodemailer from 'nodemailer';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Middleware for parsing JSON
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Check if dist folder exists
 const distPath = join(__dirname, 'dist');
@@ -17,6 +22,54 @@ if (existsSync(distPath)) {
 } else {
   console.error('ERROR: dist folder does not exist!');
 }
+
+// Email endpoint
+app.post('/api/contact', async (req, res) => {
+  try {
+    const { email, phone, message } = req.body;
+
+    if (!email || !phone || !message) {
+      return res.status(400).json({ error: 'All fields are required' });
+    }
+
+    // Create transporter - using Gmail
+    // Set EMAIL_USER and EMAIL_PASS (Gmail app password) in Railway environment variables
+    const emailUser = process.env.EMAIL_USER || 'xoxoksh05@gmail.com'
+    const emailPass = process.env.EMAIL_PASS || process.env.GMAIL_APP_PASSWORD
+
+    if (!emailPass) {
+      console.warn('⚠️ EMAIL_PASS not set. Email sending will fail. Set Gmail app password in Railway environment variables.')
+    }
+
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: emailUser,
+        pass: emailPass
+      }
+    });
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER || 'xoxoksh05@gmail.com',
+      to: 'xoxoksh05@gmail.com',
+      subject: 'Landing Essentials Package Inquiry',
+      text: `New inquiry from contact form:\n\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      `
+    };
+
+    await transporter.sendMail(mailOptions);
+    res.json({ success: true, message: 'Email sent successfully' });
+  } catch (error) {
+    console.error('Email send error:', error);
+    res.status(500).json({ error: 'Failed to send email. Please try again later.' });
+  }
+});
 
 // Serve static files from dist folder
 app.use(express.static(distPath));

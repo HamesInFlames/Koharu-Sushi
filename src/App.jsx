@@ -58,6 +58,7 @@ const demos = [
 function App() {
   const [hoveredCard, setHoveredCard] = useState(null)
   const [loaded, setLoaded] = useState(false)
+  const [formStatus, setFormStatus] = useState({ submitting: false, success: false, error: null })
 
   useEffect(() => {
     setLoaded(true)
@@ -236,19 +237,45 @@ function App() {
               </p>
             </div>
 
-            <form className="contact-form" onSubmit={(e) => {
+            <form className="contact-form" onSubmit={async (e) => {
               e.preventDefault()
+              setFormStatus({ submitting: true, success: false, error: null })
+              
               const formData = new FormData(e.target)
               const email = formData.get('email')
               const phone = formData.get('phone')
               const message = formData.get('message')
-              
-              // Create mailto link with form data
-              const subject = encodeURIComponent('Landing Essentials Package Inquiry')
-              const body = encodeURIComponent(
-                `Email: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`
-              )
-              window.location.href = `mailto:xoxoksh05@gmail.com?subject=${subject}&body=${body}`
+
+              try {
+                const response = await fetch('/api/contact', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({ email, phone, message })
+                })
+
+                const data = await response.json()
+
+                if (!response.ok) {
+                  throw new Error(data.error || 'Failed to send message')
+                }
+                
+                setFormStatus({ submitting: false, success: true, error: null })
+                e.target.reset()
+                
+                // Reset success message after 5 seconds
+                setTimeout(() => {
+                  setFormStatus({ submitting: false, success: false, error: null })
+                }, 5000)
+              } catch (error) {
+                console.error('Email send failed:', error)
+                setFormStatus({ 
+                  submitting: false, 
+                  success: false, 
+                  error: error.message || 'Failed to send message. Please try again or email us directly at xoxoksh05@gmail.com'
+                })
+              }
             }}>
               <div className="form-row">
                 <div className="form-group">
@@ -285,8 +312,24 @@ function App() {
                 ></textarea>
               </div>
 
-              <button type="submit" className="form-submit-btn">
-                Send Message
+              {formStatus.error && (
+                <div className="form-message form-error">
+                  {formStatus.error}
+                </div>
+              )}
+
+              {formStatus.success && (
+                <div className="form-message form-success">
+                  ✓ Message sent successfully! We'll get back to you within 48 hours.
+                </div>
+              )}
+
+              <button 
+                type="submit" 
+                className="form-submit-btn"
+                disabled={formStatus.submitting}
+              >
+                {formStatus.submitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
