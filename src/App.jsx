@@ -5,14 +5,24 @@ import './App.css'
 const isProduction = import.meta.env.PROD
 
 const getDemoUrl = (demoId) => {
-  // Use simple relative paths - server.js handles routing
-  const demoUrls = {
-    1: '/demo1/',
-    2: '/demo2/', 
-    3: '/demo3/',
+  if (isProduction) {
+    // In production, demos are served from subfolders by server.js
+    const demoUrls = {
+      1: '/demo1/',
+      2: '/demo2/', 
+      3: '/demo3/',
+    }
+    return demoUrls[demoId] || '/'
+  } else {
+    // In development, open each demo on its own dev server port
+    // You need to run each demo separately: cd "Demo 1..." && npm run dev
+    const devPorts = {
+      1: 5174,
+      2: 5175, 
+      3: 5176,
+    }
+    return `http://localhost:${devPorts[demoId]}/`
   }
-  
-  return demoUrls[demoId] || '/'
 }
 
 const demos = [
