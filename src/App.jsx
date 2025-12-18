@@ -273,17 +273,15 @@ function App() {
               setFormStatus({ submitting: true, success: false, error: null })
               
               const formData = new FormData(e.target)
-              formData.append("access_key", "e4a80fb0-6000-457b-8beb-4f56d83848aa")
 
               try {
-                const response = await fetch("https://api.web3forms.com/submit", {
+                const response = await fetch("https://formspree.io/f/xdanoaze", {
                   method: "POST",
-                  body: formData
+                  body: formData,
+                  headers: { 'Accept': 'application/json' }
                 })
 
-                const data = await response.json()
-
-                if (data.success) {
+                if (response.ok) {
                   setFormStatus({ submitting: false, success: true, error: null })
                   e.target.reset()
                   
@@ -291,7 +289,8 @@ function App() {
                     setFormStatus({ submitting: false, success: false, error: null })
                   }, 5000)
                 } else {
-                  throw new Error(data.message || 'Failed to send')
+                  const data = await response.json()
+                  throw new Error(data.error || 'Failed to send')
                 }
               } catch (error) {
                 setFormStatus({ submitting: false, success: false, error: error.message })
