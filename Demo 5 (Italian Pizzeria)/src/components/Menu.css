@@ -1,6 +1,19 @@
 .menu {
   padding: 6rem 0;
   background: var(--color-surface);
+  position: relative;
+}
+
+.menu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 3px;
+  background: var(--color-primary);
+  border-radius: 2px;
 }
 
 .menu-header {
@@ -56,16 +69,40 @@
 
 .menu-item {
   background: var(--color-bg);
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
+  padding: 2rem;
+  border-radius: 0;
+  border: 2px solid var(--color-border);
+  border-top: 4px solid var(--color-primary);
   transition: all 0.3s ease;
+  position: relative;
+  background-image: 
+    linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) 4px, transparent 4px),
+    linear-gradient(to bottom, var(--color-primary) 0%, var(--color-primary) 4px, transparent 4px);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 0;
+}
+
+.menu-item::after {
+  content: '🍕';
+  position: absolute;
+  top: -15px;
+  right: 20px;
+  font-size: 2rem;
+  background: var(--color-surface);
+  padding: 0 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .menu-item:hover {
   border-color: var(--color-primary);
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(199, 91, 57, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(199, 91, 57, 0.2);
+  border-top-width: 6px;
+}
+
+.menu-item:hover::after {
+  opacity: 1;
 }
 
 .menu-item-header {
@@ -78,8 +115,19 @@
 
 .menu-item h3 {
   font-family: var(--font-display);
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 600;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.menu-item h3::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  line-height: 1;
 }
 
 .menu-item-tag {
@@ -114,3 +162,4 @@
     grid-template-columns: 1fr;
   }
 }
+

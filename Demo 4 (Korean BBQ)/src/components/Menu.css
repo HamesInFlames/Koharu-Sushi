@@ -1,6 +1,17 @@
 .menu {
-  padding: 6rem 0;
+  padding: 8rem 0;
   background: var(--color-surface);
+  position: relative;
+}
+
+.menu::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-primary));
 }
 
 .menu-header {
@@ -49,23 +60,43 @@
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
 }
 
 .menu-item {
   background: var(--color-bg);
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
+  padding: 2rem;
+  border-radius: 0;
+  border: 2px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--color-accent);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
 }
 
 .menu-item:hover {
   border-color: var(--color-primary);
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(196, 30, 58, 0.1);
+  transform: translateX(8px) translateY(-4px);
+  box-shadow: 0 20px 40px rgba(196, 30, 58, 0.3);
+  border-left-color: var(--color-accent);
+}
+
+.menu-item:hover::before {
+  transform: scaleY(1);
 }
 
 .menu-item-header {
@@ -113,3 +144,4 @@
     grid-template-columns: 1fr;
   }
 }
+

@@ -1,13 +1,16 @@
 .about {
-  padding: 6rem 0;
+  padding: 8rem 0;
   background: var(--color-bg);
 }
 
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 8rem;
   align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .about-images {
@@ -15,15 +18,19 @@
 }
 
 .image-main {
-  border-radius: 200px 200px 16px 16px;
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: var(--color-surface);
+  padding: 1rem;
 }
 
 .image-main img {
   width: 100%;
-  height: 450px;
+  height: 500px;
   object-fit: cover;
+  border-radius: 16px;
+  filter: brightness(1.02);
 }
 
 .image-secondary {
@@ -70,13 +77,22 @@
 }
 
 .about-content {
-  padding-left: 2rem;
+  padding-left: 0;
+}
+
+.about-content .section-title {
+  font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 2.5rem;
 }
 
 .about-text {
   color: var(--color-text-muted);
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
+  margin-bottom: 2rem;
+  line-height: 1.9;
+  font-size: 1.0625rem;
+  max-width: 90%;
 }
 
 .about-features {
@@ -127,3 +143,4 @@
     height: 140px;
   }
 }
+

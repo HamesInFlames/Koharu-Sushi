@@ -6,8 +6,10 @@
 .location-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 6rem;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .location-info {
@@ -15,14 +17,26 @@
 }
 
 .info-block {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding: 2rem;
+  background: var(--color-bg);
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+}
+
+.info-block:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 20px rgba(74, 124, 89, 0.1);
+  transform: translateY(-2px);
 }
 
 .info-block h3 {
-  font-size: 1rem;
+  font-size: 1.0625rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   color: var(--color-primary);
+  letter-spacing: 0.5px;
 }
 
 .info-block p {
@@ -63,12 +77,13 @@
 }
 
 .map-btn {
-  padding: 1rem 2rem;
+  padding: 1rem 2.5rem;
   background: var(--color-primary);
   color: white;
   border-radius: 50px;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.5px;
 }
 
 .map-btn:hover {
@@ -85,3 +100,4 @@
     height: 300px;
   }
 }
+

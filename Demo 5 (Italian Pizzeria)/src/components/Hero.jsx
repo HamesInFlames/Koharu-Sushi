@@ -47,20 +47,20 @@ const Hero = () => {
               View Menu
             </button>
           </div>
-        </div>
 
-        <div className="hero-features">
-          <div className="feature">
-            <span className="feature-icon">🍕</span>
-            <span className="feature-text">Wood-Fired</span>
-          </div>
-          <div className="feature">
-            <span className="feature-icon">🇮🇹</span>
-            <span className="feature-text">Imported Ingredients</span>
-          </div>
-          <div className="feature">
-            <span className="feature-icon">👨‍🍳</span>
-            <span className="feature-text">Family Recipes</span>
+          <div className="hero-features">
+            <div className="feature">
+              <span className="feature-icon">🍕</span>
+              <span className="feature-text">Wood-Fired</span>
+            </div>
+            <div className="feature">
+              <span className="feature-icon">🇮🇹</span>
+              <span className="feature-text">Imported Ingredients</span>
+            </div>
+            <div className="feature">
+              <span className="feature-icon">👨‍🍳</span>
+              <span className="feature-text">Family Recipes</span>
+            </div>
           </div>
         </div>
       </div>
@@ -69,3 +69,4 @@ const Hero = () => {
 }
 
 export default Hero
+

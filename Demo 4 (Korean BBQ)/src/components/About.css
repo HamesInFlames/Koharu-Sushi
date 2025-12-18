@@ -1,13 +1,27 @@
 .about {
-  padding: 6rem 0;
+  padding: 8rem 0;
   background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(196, 30, 58, 0.05) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 6rem;
+  align-items: start;
+  position: relative;
 }
 
 .about-images {
@@ -15,15 +29,29 @@
 }
 
 .image-main {
-  border-radius: 8px;
+  border-radius: 0;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  border: 3px solid var(--color-primary);
+  transform: rotate(-2deg);
+  position: relative;
+  z-index: 2;
+}
+
+.image-main::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border: 3px solid var(--color-accent);
+  transform: rotate(2deg);
+  z-index: -1;
 }
 
 .image-main img {
   width: 100%;
-  height: 400px;
+  height: 500px;
   object-fit: cover;
+  filter: contrast(1.1) brightness(0.95);
 }
 
 .image-secondary {
@@ -71,13 +99,22 @@
 }
 
 .about-content {
-  padding-left: 2rem;
+  padding-left: 0;
+  padding-top: 3rem;
+}
+
+.about-content .section-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 2rem;
 }
 
 .about-text {
   color: var(--color-text-muted);
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
+  margin-bottom: 2rem;
+  line-height: 2;
+  font-size: 1.125rem;
 }
 
 .about-features {
@@ -124,3 +161,4 @@
     bottom: -1rem;
   }
 }
+

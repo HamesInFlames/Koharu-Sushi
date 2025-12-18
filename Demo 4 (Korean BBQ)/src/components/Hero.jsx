@@ -26,8 +26,8 @@ const Hero = () => {
         <div className="hero-text">
           <span className="hero-tagline">Authentic Korean BBQ Experience</span>
           <h1 className="hero-title">
-            <span className="title-line">Grill Your Own</span>
-            <span className="title-line accent">Premium Meats</span>
+            <span className="title-line">GRILL YOUR OWN</span>
+            <span className="title-line accent">PREMIUM MEATS</span>
           </h1>
           <p className="hero-description">
             Experience the art of Korean barbecue with premium cuts, 
@@ -74,3 +74,4 @@ const Hero = () => {
 }
 
 export default Hero
+

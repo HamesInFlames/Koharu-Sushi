@@ -35,8 +35,20 @@
   position: relative;
   z-index: 2;
   max-width: 1200px;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
   text-align: center;
+}
+
+.hero-text {
+  position: relative;
+  padding: 3rem;
+  background: rgba(250, 248, 245, 0.1);
+  backdrop-filter: blur(5px);
+  border: 3px double var(--color-primary);
+  border-radius: 0;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: inset 0 0 50px rgba(199, 91, 57, 0.1);
 }
 
 .hero-tagline {
@@ -51,11 +63,32 @@
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
+  font-size: clamp(2.75rem, 8vw, 5.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 2rem;
   color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.hero-title::before,
+.hero-title::after {
+  content: '❋';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: var(--color-primary);
+  opacity: 0.6;
+}
+
+.hero-title::before {
+  left: -3rem;
+}
+
+.hero-title::after {
+  right: -3rem;
 }
 
 .hero-title .title-line {
@@ -94,9 +127,15 @@
 
 .hero-features {
   display: flex;
-  gap: 3rem;
+  gap: 4rem;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 2px dashed rgba(255, 255, 255, 0.3);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .feature {
@@ -121,3 +160,4 @@
     gap: 1.5rem;
   }
 }
+

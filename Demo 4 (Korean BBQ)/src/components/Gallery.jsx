@@ -24,7 +24,7 @@ const Gallery = () => {
           {galleryImages.map((image, index) => (
             <div 
               key={index} 
-              className={`gallery-item ${image.span === 'large' ? 'span-2' : ''}`}
+              className="gallery-item"
             >
               <img src={image.src} alt={image.alt} />
               <div className="gallery-overlay">
@@ -51,3 +51,4 @@ const Gallery = () => {
 }
 
 export default Gallery
+
