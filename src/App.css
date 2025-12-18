@@ -133,11 +133,11 @@
 }
 
 .landing-main-card {
-  background: var(--color-bg);
+  background: var(--color-surface);
   border-radius: 12px;
   padding: 2.5rem;
   border: 1px solid var(--color-border);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .landing-price-row {
@@ -228,7 +228,7 @@
   font-style: italic;
   line-height: 1.6;
   padding: 1rem;
-  background: var(--color-surface);
+  background: var(--color-bg);
   border-radius: 8px;
   border-left: 3px solid var(--color-accent-2);
 }
@@ -238,7 +238,7 @@
   border-radius: 12px;
   padding: 2rem;
   border: 1px solid var(--color-border);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   position: sticky;
   top: 2rem;
 }
@@ -299,18 +299,18 @@
   border-radius: 8px;
   border: none;
   background: var(--color-accent-1);
-  color: var(--color-text);
+  color: #1a1815;
   font-size: 0.9375rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(201, 169, 97, 0.2);
+  box-shadow: 0 2px 4px rgba(201, 169, 97, 0.3);
 }
 
 .side-cta:hover {
   background: var(--color-accent-2);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
+  box-shadow: 0 4px 12px rgba(201, 169, 97, 0.4);
 }
 
 .side-cta:active {
@@ -327,7 +327,7 @@
 
 .demo-card {
   position: relative;
-  background: var(--color-bg);
+  background: var(--color-surface);
   border-radius: 12px;
   padding: 2rem;
   border: 1px solid var(--color-border);
@@ -336,7 +336,7 @@
   animation: fadeInUp 0.6s ease forwards;
   opacity: 0;
   transform: translateY(30px);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes fadeInUp {
@@ -349,7 +349,7 @@
 .demo-card:hover {
   transform: translateY(-4px);
   border-color: var(--card-color);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(201, 169, 97, 0.3);
 }
 
 .card-glow {
@@ -481,11 +481,11 @@
 }
 
 .contact-form {
-  background: var(--color-bg);
+  background: var(--color-surface);
   border-radius: 12px;
   padding: 2.5rem;
   border: 1px solid var(--color-border);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .form-row {
@@ -511,7 +511,7 @@
 .form-group input,
 .form-group textarea {
   padding: 0.875rem 1rem;
-  background: var(--color-bg);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 8px;
   color: var(--color-text);
@@ -524,7 +524,8 @@
 .form-group textarea:focus {
   outline: none;
   border-color: var(--color-accent-1);
-  box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
+  background: var(--color-surface-hover);
+  box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.2);
 }
 
 .form-group input::placeholder,
@@ -542,7 +543,7 @@
   width: 100%;
   padding: 1rem 2rem;
   background: var(--color-accent-1);
-  color: var(--color-text);
+  color: #1a1815;
   border: none;
   border-radius: 8px;
   font-family: var(--font-body);
@@ -551,13 +552,13 @@
   cursor: pointer;
   transition: all 0.2s ease;
   margin-top: 1rem;
-  box-shadow: 0 2px 4px rgba(201, 169, 97, 0.2);
+  box-shadow: 0 2px 4px rgba(201, 169, 97, 0.3);
 }
 
 .form-submit-btn:hover {
   background: var(--color-accent-2);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
+  box-shadow: 0 4px 12px rgba(201, 169, 97, 0.4);
 }
 
 .form-submit-btn:active {
