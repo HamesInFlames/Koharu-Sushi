@@ -3,7 +3,7 @@ import express from 'express';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { existsSync, readdirSync } from 'fs';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -24,7 +24,7 @@ if (existsSync(distPath)) {
   console.error('ERROR: dist folder does not exist!');
 }
 
-// Email endpoint
+// Email endpoint using Resend
 app.post('/api/contact', async (req, res) => {
   console.log('📧 Contact form submission received');
   
@@ -36,43 +36,37 @@ app.post('/api/contact', async (req, res) => {
       return res.status(400).json({ error: 'All fields are required' });
     }
 
-    // Create transporter - using Gmail
-    // Set EMAIL_USER and EMAIL_PASS (Gmail app password) in Railway environment variables
-    const emailUser = process.env.EMAIL_USER || 'xoxoksh05@gmail.com'
-    const emailPass = process.env.EMAIL_PASS || process.env.GMAIL_APP_PASSWORD
+    const resendApiKey = process.env.RESEND_API_KEY;
 
-    if (!emailPass) {
-      console.error('❌ EMAIL_PASS not set. Cannot send email.');
+    if (!resendApiKey) {
+      console.error('❌ RESEND_API_KEY not set. Cannot send email.');
       return res.status(500).json({ 
         error: 'Email service not configured. Please contact us directly at xoxoksh05@gmail.com' 
       });
     }
 
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: emailUser,
-        pass: emailPass
-      }
-    });
+    const resend = new Resend(resendApiKey);
 
-    const mailOptions = {
-      from: emailUser,
+    const { data, error } = await resend.emails.send({
+      from: 'Kim Consultant <onboarding@resend.dev>',
       to: 'xoxoksh05@gmail.com',
       replyTo: email,
       subject: 'Landing Essentials Package Inquiry',
-      text: `New inquiry from contact form:\n\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`,
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>From:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>
       `
-    };
+    });
 
-    await transporter.sendMail(mailOptions);
-    console.log('✅ Email sent successfully');
+    if (error) {
+      console.error('❌ Resend error:', error);
+      return res.status(500).json({ error: 'Failed to send email. Please try again later.' });
+    }
+
+    console.log('✅ Email sent successfully:', data);
     res.json({ success: true, message: 'Email sent successfully' });
   } catch (error) {
     console.error('❌ Email send error:', error.message);
