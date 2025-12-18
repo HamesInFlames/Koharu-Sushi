@@ -197,7 +197,9 @@ const getDemoUrl = (demoId) => {
       5: '/demo5/',
       6: '/demo6/',
     }
-    return demoUrls[demoId] || '/'
+    const url = demoUrls[demoId] || '/'
+    // Ensure absolute URL for same-origin navigation
+    return url.startsWith('/') ? url : `/${url}`
   } else {
     // In development, open each demo on its own dev server port
     // You need to run each demo separately: cd "Demo 1..." && npm run dev
@@ -209,7 +211,8 @@ const getDemoUrl = (demoId) => {
       5: 5178,
       6: 5179,
     }
-    return `http://localhost:${devPorts[demoId]}/`
+    const port = devPorts[demoId]
+    return port ? `http://localhost:${port}/` : '/'
   }
 }
 
@@ -435,12 +438,13 @@ function App() {
           <div className="demos-grid">
             {demos.map((demo, index) => {
               const demoUrl = getDemoUrl(demo.id)
+              const isExternal = !isProduction && demoUrl.startsWith('http://localhost')
               return (
               <a
                 key={demo.id}
                 href={demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={isExternal ? "_blank" : "_self"}
+                rel={isExternal ? "noopener noreferrer" : undefined}
                 className={`demo-card ${hoveredCard === demo.id ? 'hovered' : ''}`}
                 style={{ 
                   '--card-color': demo.color,
