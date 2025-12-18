@@ -169,7 +169,7 @@ function App() {
                   if (contactSection) {
                     contactSection.scrollIntoView({ behavior: 'smooth' })
                   } else {
-                    window.location.href = 'mailto:info@yourstudio.com?subject=Landing Essentials Website'
+                    window.location.href = 'mailto:info@kimconsultant.com?subject=Landing Essentials Website'
                   }
                 }}
               >
@@ -224,6 +224,72 @@ function App() {
               </div>
             </a>
           ))}
+        </section>
+
+        <section id="contact" className="contact-section">
+          <div className="contact-container">
+            <div className="contact-header">
+              <span className="section-label">Get In Touch</span>
+              <h2 className="contact-title">Contact Us</h2>
+              <p className="contact-subtitle">
+                Ready to get started? Fill out the form below and we'll get back to you within 48 hours.
+              </p>
+            </div>
+
+            <form className="contact-form" onSubmit={(e) => {
+              e.preventDefault()
+              const formData = new FormData(e.target)
+              const email = formData.get('email')
+              const phone = formData.get('phone')
+              const message = formData.get('message')
+              
+              // Create mailto link with form data
+              const subject = encodeURIComponent('Landing Essentials Package Inquiry')
+              const body = encodeURIComponent(
+                `Email: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`
+              )
+              window.location.href = `mailto:info@kimconsultant.com?subject=${subject}&body=${body}`
+            }}>
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="email">Email Address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="phone">Phone Number</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    placeholder="(555) 123-4567"
+                  />
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="Tell us about your project or ask any questions..."
+                ></textarea>
+              </div>
+
+              <button type="submit" className="form-submit-btn">
+                Send Message
+              </button>
+            </form>
+          </div>
         </section>
       </main>
 
