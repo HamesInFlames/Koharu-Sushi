@@ -449,6 +449,8 @@
   background: linear-gradient(90deg, transparent, var(--color-accent-1), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .demo-number {

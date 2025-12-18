@@ -6,10 +6,11 @@ const isProduction = import.meta.env.PROD
 
 const getDemoUrl = (demoId) => {
   // In production, demos are served from subfolders
+  const baseUrl = import.meta.env.BASE_URL || '/'
   const productionUrls = {
-    1: '/demo1/',
-    2: '/demo2/', 
-    3: '/demo3/',
+    1: `${baseUrl}demo1/`,
+    2: `${baseUrl}demo2/`, 
+    3: `${baseUrl}demo3/`,
   }
   
   // In development, each demo runs on its own port
@@ -205,10 +206,12 @@ function App() {
             <p className="demos-subtitle">Explore these fully functional restaurant website demos</p>
           </div>
           <div className="demos-grid">
-            {demos.map((demo, index) => (
+            {demos.map((demo, index) => {
+              const demoUrl = getDemoUrl(demo.id)
+              return (
               <a
                 key={demo.id}
-                href={getDemoUrl(demo.id)}
+                href={demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`demo-card ${hoveredCard === demo.id ? 'hovered' : ''}`}
@@ -248,7 +251,8 @@ function App() {
                   </div>
                 </div>
               </a>
-            ))}
+              )
+            })}
           </div>
         </section>
 
