@@ -28,8 +28,8 @@ const demos = [
     name: 'Sakura Sushi House',
     subtitle: 'Demo 1',
     description: 'A warm, cherry blossom-inspired design with traditional Japanese aesthetics. Features multi-page navigation with About, Menu, Gallery, and Location pages.',
-    color: '#ffb7c5',
-    accent: '#c41e3a',
+    color: '#2563eb',
+    accent: '#1e40af',
     features: ['Multi-page Layout', 'Cherry Blossom Theme', 'Photo Gallery', 'Location Map'],
     style: 'Traditional & Elegant'
   },
@@ -38,8 +38,8 @@ const demos = [
     name: 'ZEN Sushi',
     subtitle: 'Demo 2',
     description: 'A minimalist, zen-inspired single-page design with clean lines and peaceful aesthetics. Emphasizes simplicity and modern Japanese philosophy.',
-    color: '#a8d5ba',
-    accent: '#2d5a3d',
+    color: '#2563eb',
+    accent: '#1e40af',
     features: ['Single Page Design', 'Minimalist Style', 'Philosophy Section', 'Customer Reviews'],
     style: 'Modern & Zen'
   },
@@ -48,8 +48,8 @@ const demos = [
     name: 'KOHARU Japanese Restaurant',
     subtitle: 'Demo 3 - Realistic',
     description: 'A fully realistic website based on actual restaurant data. Includes complete menu with prices, real contact information, Uber Eats integration, and Instagram.',
-    color: '#d4a853',
-    accent: '#c41e3a',
+    color: '#2563eb',
+    accent: '#1e40af',
     features: ['Complete Menu', 'Real Contact Info', 'Online Ordering', 'Instagram QR'],
     style: 'Professional & Authentic'
   }
