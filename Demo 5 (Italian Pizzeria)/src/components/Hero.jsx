@@ -16,24 +16,22 @@ const Hero = () => {
       <div className="hero-bg">
         <div className="hero-overlay"></div>
         <img 
-          src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1920&q=80" 
-          alt="Sushi background"
+          src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1920&q=80" 
+          alt="Fresh pizza"
           className="hero-image"
         />
       </div>
       
       <div className="hero-content">
-        <div className="hero-text animate-fade-in-up">
-          <span className="hero-tagline">Authentic Japanese Cuisine</span>
+        <div className="hero-text">
+          <span className="hero-tagline">Authentic Italian Since 1985</span>
           <h1 className="hero-title">
-            <span className="title-line">Make</span>
-            <span className="title-line accent">Sushi</span>
-            <span className="title-line">Make</span>
-            <span className="title-line gold">Memories</span>
+            <span className="title-line">Wood-Fired</span>
+            <span className="title-line accent">Perfection</span>
           </h1>
           <p className="hero-description">
-            Experience the art of traditional Japanese cuisine crafted with passion, 
-            premium ingredients, and centuries of culinary tradition.
+            Handcrafted pizzas made with imported Italian ingredients, 
+            baked in our traditional wood-fired oven at 900°F.
           </p>
           
           <div className="hero-actions">
@@ -51,31 +49,23 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="hero-features animate-fade-in-up delay-3">
+        <div className="hero-features">
           <div className="feature">
-            <span className="feature-icon">🍣</span>
-            <span className="feature-text">Premium Sushi</span>
+            <span className="feature-icon">🍕</span>
+            <span className="feature-text">Wood-Fired</span>
           </div>
           <div className="feature">
-            <span className="feature-icon">🥢</span>
-            <span className="feature-text">Fresh Daily</span>
+            <span className="feature-icon">🇮🇹</span>
+            <span className="feature-text">Imported Ingredients</span>
           </div>
           <div className="feature">
-            <span className="feature-icon">🚗</span>
-            <span className="feature-text">Fast Delivery</span>
+            <span className="feature-icon">👨‍🍳</span>
+            <span className="feature-text">Family Recipes</span>
           </div>
         </div>
-      </div>
-
-      <div className="scroll-indicator">
-        <div className="mouse">
-          <div className="wheel"></div>
-        </div>
-        <span>Scroll Down</span>
       </div>
     </section>
   )
 }
 
 export default Hero
-

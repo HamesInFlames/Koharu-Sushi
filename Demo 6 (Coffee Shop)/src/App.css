@@ -1,0 +1,17 @@
+.app {
+  min-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.app.loaded {
+  opacity: 1;
+}
+
+main {
+  overflow-x: hidden;
+}
+
+section {
+  scroll-margin-top: 80px;
+}

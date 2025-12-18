@@ -3,7 +3,7 @@ import './Navbar.css'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,16 +13,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.classList.add('menu-open')
-    } else {
-      document.body.classList.remove('menu-open')
-    }
-    return () => document.body.classList.remove('menu-open')
-  }, [isMobileMenuOpen])
-
   const scrollToSection = (id) => {
     const element = document.getElementById(id)
     if (element) {
@@ -31,39 +21,39 @@ const Navbar = () => {
       const offsetPosition = elementPosition + window.pageYOffset - offset
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
     }
-    setIsMobileMenuOpen(false)
+    setIsMenuOpen(false)
   }
 
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
-        <a href="#home" className="logo" onClick={(e) => { e.preventDefault(); scrollToSection('home') }}>
-          <span className="logo-icon">桜</span>
-          <span className="logo-text">Sakura<span className="logo-accent">Sushi</span></span>
+        <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home') }} className="logo">
+          <span className="logo-icon">☕</span>
+          <span className="logo-text">Ember & <span className="logo-accent">Bloom</span></span>
         </a>
 
-        <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
+        <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
           <li><a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home') }}>Home</a></li>
           <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about') }}>Our Story</a></li>
           <li><a href="#menu" onClick={(e) => { e.preventDefault(); scrollToSection('menu') }}>Menu</a></li>
           <li><a href="#gallery" onClick={(e) => { e.preventDefault(); scrollToSection('gallery') }}>Gallery</a></li>
-          <li><a href="#location" onClick={(e) => { e.preventDefault(); scrollToSection('location') }}>Location</a></li>
+          <li><a href="#location" onClick={(e) => { e.preventDefault(); scrollToSection('location') }}>Visit</a></li>
         </ul>
 
         <div className="nav-actions">
           <a 
             href="https://www.ubereats.com" 
             target="_blank" 
-            rel="noopener noreferrer" 
-            className="order-btn"
+            rel="noopener noreferrer"
+            className="btn-order"
           >
-            Order Online
+            Order Now
           </a>
         </div>
 
         <button 
-          className={`mobile-menu-btn ${isMobileMenuOpen ? 'active' : ''}`}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className={`mobile-menu-btn ${isMenuOpen ? 'active' : ''}`}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
           <span></span>

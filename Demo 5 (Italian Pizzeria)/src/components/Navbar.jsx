@@ -13,14 +13,13 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.classList.add('menu-open')
+      document.body.style.overflow = 'hidden'
     } else {
-      document.body.classList.remove('menu-open')
+      document.body.style.overflow = ''
     }
-    return () => document.body.classList.remove('menu-open')
+    return () => { document.body.style.overflow = '' }
   }, [isMobileMenuOpen])
 
   const scrollToSection = (id) => {
@@ -38,8 +37,7 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <a href="#home" className="logo" onClick={(e) => { e.preventDefault(); scrollToSection('home') }}>
-          <span className="logo-icon">桜</span>
-          <span className="logo-text">Sakura<span className="logo-accent">Sushi</span></span>
+          <span className="logo-text">Bella <span className="logo-accent">Napoli</span></span>
         </a>
 
         <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
@@ -47,17 +45,12 @@ const Navbar = () => {
           <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about') }}>Our Story</a></li>
           <li><a href="#menu" onClick={(e) => { e.preventDefault(); scrollToSection('menu') }}>Menu</a></li>
           <li><a href="#gallery" onClick={(e) => { e.preventDefault(); scrollToSection('gallery') }}>Gallery</a></li>
-          <li><a href="#location" onClick={(e) => { e.preventDefault(); scrollToSection('location') }}>Location</a></li>
+          <li><a href="#location" onClick={(e) => { e.preventDefault(); scrollToSection('location') }}>Visit Us</a></li>
         </ul>
 
         <div className="nav-actions">
-          <a 
-            href="https://www.ubereats.com" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="order-btn"
-          >
-            Order Online
+          <a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer" className="btn-order">
+            Order Now
           </a>
         </div>
 

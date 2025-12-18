@@ -1,16 +1,25 @@
-import { Link } from 'react-router-dom'
 import './Footer.css'
 
 const Footer = () => {
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id)
+    if (element) {
+      const offset = 80
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - offset
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
+    }
+  }
+
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <Link to="/" className="logo">
+            <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home') }} className="logo">
               <span className="logo-icon">桜</span>
               <span className="logo-text">Sakura<span className="logo-accent">Sushi</span></span>
-            </Link>
+            </a>
             <p className="footer-tagline">
               Authentic Japanese cuisine crafted with passion and tradition since 2009.
             </p>
@@ -30,11 +39,11 @@ const Footer = () => {
           <div className="footer-links">
             <h4>Quick Links</h4>
             <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">Our Story</Link></li>
-              <li><Link to="/menu">Menu</Link></li>
-              <li><Link to="/gallery">Gallery</Link></li>
-              <li><Link to="/location">Location</Link></li>
+              <li><a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home') }}>Home</a></li>
+              <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about') }}>Our Story</a></li>
+              <li><a href="#menu" onClick={(e) => { e.preventDefault(); scrollToSection('menu') }}>Menu</a></li>
+              <li><a href="#gallery" onClick={(e) => { e.preventDefault(); scrollToSection('gallery') }}>Gallery</a></li>
+              <li><a href="#location" onClick={(e) => { e.preventDefault(); scrollToSection('location') }}>Location</a></li>
             </ul>
           </div>
 

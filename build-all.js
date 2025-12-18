@@ -9,9 +9,12 @@ const demos = [
   { name: 'Demo 1 (Sakura Sushi House)', folder: 'demo1' },
   { name: 'Demo 2 (ZEN Sushi)', folder: 'demo2' },
   { name: 'Demo 3 (Realistic Demo)', folder: 'demo3' },
+  { name: 'Demo 4 (Korean BBQ)', folder: 'demo4' },
+  { name: 'Demo 5 (Italian Pizzeria)', folder: 'demo5' },
+  { name: 'Demo 6 (Coffee Shop)', folder: 'demo6' },
 ];
 
-console.log('🍣 Building Koharu Sushi Demo Hub...\n');
+console.log('☕ Building Kim Consultant Demo Hub...\n');
 
 // Clean dist folder
 const distPath = join(__dirname, 'dist');
@@ -47,8 +50,9 @@ for (const demo of demos) {
 
 console.log('🎉 All builds complete!');
 console.log('   Main hub: /dist/');
-console.log('   Demo 1:   /dist/demo1/');
-console.log('   Demo 2:   /dist/demo2/');
-console.log('   Demo 3:   /dist/demo3/');
-
-
+console.log('   Demo 1 (Sakura Sushi):  /dist/demo1/');
+console.log('   Demo 2 (ZEN Sushi):     /dist/demo2/');
+console.log('   Demo 3 (Realistic):     /dist/demo3/');
+console.log('   Demo 4 (Korean BBQ):    /dist/demo4/');
+console.log('   Demo 5 (Italian):       /dist/demo5/');
+console.log('   Demo 6 (Coffee Shop):   /dist/demo6/');

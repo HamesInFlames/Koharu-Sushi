@@ -76,6 +76,21 @@ const translations = {
     demo3Description: 'A fully realistic website based on actual restaurant data. Includes complete menu with prices, real contact information, Uber Eats integration, and Instagram.',
     demo3Style: 'Professional & Authentic',
     demo3Features: ['Complete Menu', 'Real Contact Info', 'Online Ordering', 'Instagram QR'],
+    demo4Name: 'Seoul Fire Korean BBQ',
+    demo4Subtitle: 'Demo 4',
+    demo4Description: 'A bold, warm design featuring Korean BBQ aesthetics. Showcases sizzling meats, traditional sides, and an authentic dining experience with modern flair.',
+    demo4Style: 'Bold & Traditional',
+    demo4Features: ['BBQ Menu', 'Gallery', 'Online Ordering', 'Location Map'],
+    demo5Name: 'Bella Napoli Pizzeria',
+    demo5Subtitle: 'Demo 5',
+    demo5Description: 'A rustic Italian pizzeria design with warm terracotta tones. Features wood-fired pizza imagery, family recipes, and authentic Italian atmosphere.',
+    demo5Style: 'Rustic & Welcoming',
+    demo5Features: ['Pizza Menu', 'Pasta Selection', 'Photo Gallery', 'Order Online'],
+    demo6Name: 'Ember & Bloom Coffee',
+    demo6Subtitle: 'Demo 6',
+    demo6Description: 'A modern, minimalist coffee shop design with earthy tones. Emphasizes specialty coffee, artisan pastries, and a cozy neighborhood cafe atmosphere.',
+    demo6Style: 'Modern & Cozy',
+    demo6Features: ['Coffee Menu', 'Pastries', 'Gallery', 'Location'],
   },
   ko: {
     // Nav
@@ -150,6 +165,21 @@ const translations = {
     demo3Description: '실제 레스토랑 데이터를 기반으로 한 완전히 현실적인 웹사이트. 가격이 포함된 전체 메뉴, 실제 연락처 정보, 우버이츠 통합 및 인스타그램.',
     demo3Style: '프로페셔널 & 정통',
     demo3Features: ['전체 메뉴', '실제 연락처', '온라인 주문', '인스타그램 QR'],
+    demo4Name: '서울 파이어 한식 바베큐',
+    demo4Subtitle: '데모 4',
+    demo4Description: '한국식 바베큐 미학을 특징으로 하는 대담하고 따뜻한 디자인. 지글지글 고기, 전통 반찬, 현대적인 감각의 정통 다이닝 경험을 선보입니다.',
+    demo4Style: '대담한 & 전통적',
+    demo4Features: ['바베큐 메뉴', '갤러리', '온라인 주문', '위치 지도'],
+    demo5Name: '벨라 나폴리 피자리아',
+    demo5Subtitle: '데모 5',
+    demo5Description: '따뜻한 테라코타 톤의 소박한 이탈리안 피자리아 디자인. 화덕 피자 이미지, 가족 레시피, 정통 이탈리안 분위기를 특징으로 합니다.',
+    demo5Style: '소박한 & 환영하는',
+    demo5Features: ['피자 메뉴', '파스타 선택', '포토 갤러리', '온라인 주문'],
+    demo6Name: '엠버 앤 블룸 커피',
+    demo6Subtitle: '데모 6',
+    demo6Description: '어시 톤의 현대적이고 미니멀한 커피숍 디자인. 스페셜티 커피, 장인 페이스트리, 아늑한 동네 카페 분위기를 강조합니다.',
+    demo6Style: '모던 & 아늑한',
+    demo6Features: ['커피 메뉴', '페이스트리', '갤러리', '위치'],
   }
 }
 
@@ -163,6 +193,9 @@ const getDemoUrl = (demoId) => {
       1: '/demo1/',
       2: '/demo2/', 
       3: '/demo3/',
+      4: '/demo4/',
+      5: '/demo5/',
+      6: '/demo6/',
     }
     return demoUrls[demoId] || '/'
   } else {
@@ -172,6 +205,9 @@ const getDemoUrl = (demoId) => {
       1: 5174,
       2: 5175, 
       3: 5176,
+      4: 5177,
+      5: 5178,
+      6: 5179,
     }
     return `http://localhost:${devPorts[demoId]}/`
   }
@@ -216,6 +252,36 @@ function App() {
       accent: '#b8944d',
       features: t.demo3Features,
       style: t.demo3Style
+    },
+    {
+      id: 4,
+      name: t.demo4Name,
+      subtitle: t.demo4Subtitle,
+      description: t.demo4Description,
+      color: '#c41e3a',
+      accent: '#8b0000',
+      features: t.demo4Features,
+      style: t.demo4Style
+    },
+    {
+      id: 5,
+      name: t.demo5Name,
+      subtitle: t.demo5Subtitle,
+      description: t.demo5Description,
+      color: '#c75b39',
+      accent: '#5c7c4e',
+      features: t.demo5Features,
+      style: t.demo5Style
+    },
+    {
+      id: 6,
+      name: t.demo6Name,
+      subtitle: t.demo6Subtitle,
+      description: t.demo6Description,
+      color: '#4a7c59',
+      accent: '#c4a574',
+      features: t.demo6Features,
+      style: t.demo6Style
     }
   ]
 

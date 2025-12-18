@@ -1,0 +1,87 @@
+.location {
+  padding: 6rem 0;
+  background: var(--color-surface);
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.location-info {
+  margin: 2rem 0;
+}
+
+.info-block {
+  margin-bottom: 1.5rem;
+}
+
+.info-block h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+
+.info-block p {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+.location-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.location-map {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.map-placeholder {
+  position: relative;
+  height: 400px;
+}
+
+.map-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 36, 24, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-btn {
+  padding: 1rem 2rem;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.map-btn:hover {
+  background: var(--color-primary-light);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 968px) {
+  .location-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-placeholder {
+    height: 300px;
+  }
+}

@@ -9,6 +9,9 @@ const demos = [
   'Demo 1 (Sakura Sushi House)',
   'Demo 2 (ZEN Sushi)',
   'Demo 3 (Realistic Demo)',
+  'Demo 4 (Korean BBQ)',
+  'Demo 5 (Italian Pizzeria)',
+  'Demo 6 (Coffee Shop)',
 ];
 
 console.log('📦 Installing dependencies for all demos...\n');
@@ -31,4 +34,3 @@ for (const demo of demos) {
 }
 
 console.log('🎉 All demo dependencies installed!');
-
