@@ -13,13 +13,14 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden'
+      document.body.classList.add('menu-open')
     } else {
-      document.body.style.overflow = ''
+      document.body.classList.remove('menu-open')
     }
-    return () => { document.body.style.overflow = '' }
+    return () => document.body.classList.remove('menu-open')
   }, [isMobileMenuOpen])
 
   const scrollToSection = (id) => {
