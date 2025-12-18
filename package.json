@@ -4,7 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"vite\" \"node server.js\"",
+    "dev:vite": "vite",
+    "server": "node server.js",
     "postinstall": "node install-all.js",
     "build": "node build-all.js",
     "build:hub": "vite build",
@@ -12,6 +14,7 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
     "express": "^4.18.2",
     "nodemailer": "^7.0.11",
     "react": "^18.3.1",
@@ -19,6 +22,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.7.0",
+    "concurrently": "^9.2.1",
     "vite": "^5.4.21"
   },
   "optionalDependencies": {
