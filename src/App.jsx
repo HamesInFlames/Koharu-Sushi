@@ -59,15 +59,43 @@ function App() {
   const [hoveredCard, setHoveredCard] = useState(null)
   const [loaded, setLoaded] = useState(false)
   const [formStatus, setFormStatus] = useState({ submitting: false, success: false, error: null })
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     setLoaded(true)
+    
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
 
   return (
     <div className={`app ${loaded ? 'loaded' : ''}`}>
       <div className="bg-gradient"></div>
       <div className="bg-pattern"></div>
+      
+      <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+        <div className="navbar-container">
+          <div className="logo">
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Kim Consultant" className="logo-img" />
+          </div>
+          <div className="nav-links">
+            <a href="#package" onClick={(e) => { e.preventDefault(); scrollToSection('package') }}>Package</a>
+            <a href="#demos" onClick={(e) => { e.preventDefault(); scrollToSection('demos') }}>Demos</a>
+            <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact') }}>Contact</a>
+          </div>
+        </div>
+      </nav>
       
       <header className="header">
         <div className="header-content">
@@ -90,7 +118,7 @@ function App() {
           </p>
         </section>
 
-        <section className="landing-section">
+        <section id="package" className="landing-section">
           <div className="landing-header">
             <h2 className="landing-title">Landing Essentials Package</h2>
             <p className="landing-subtitle">
@@ -180,51 +208,57 @@ function App() {
           </div>
         </section>
 
-        <section className="demos">
-          {demos.map((demo, index) => (
-            <a
-              key={demo.id}
-              href={getDemoUrl(demo.id)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`demo-card ${hoveredCard === demo.id ? 'hovered' : ''}`}
-              style={{ 
-                '--card-color': demo.color,
-                '--card-accent': demo.accent,
-                animationDelay: `${index * 0.15}s`
-              }}
-              onMouseEnter={() => setHoveredCard(demo.id)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-              <div className="card-glow"></div>
-              <div className="card-content">
-                <div className="card-header">
-                  <span className="demo-number">{demo.subtitle}</span>
-                  <h2 className="demo-name">{demo.name}</h2>
-                  <span className="demo-style">{demo.style}</span>
-                </div>
-                
-                <p className="demo-description">
-                  {demo.description}
-                </p>
-                
-                <div className="demo-features">
-                  {demo.features.map((feature, i) => (
-                    <span key={i} className="feature-tag">{feature}</span>
-                  ))}
-                </div>
+        <section id="demos" className="demos">
+          <div className="demos-header">
+            <h2 className="demos-title">View Our Work</h2>
+            <p className="demos-subtitle">Explore these fully functional restaurant website demos</p>
+          </div>
+          <div className="demos-grid">
+            {demos.map((demo, index) => (
+              <a
+                key={demo.id}
+                href={getDemoUrl(demo.id)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`demo-card ${hoveredCard === demo.id ? 'hovered' : ''}`}
+                style={{ 
+                  '--card-color': demo.color,
+                  '--card-accent': demo.accent,
+                  animationDelay: `${index * 0.15}s`
+                }}
+                onMouseEnter={() => setHoveredCard(demo.id)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                <div className="card-glow"></div>
+                <div className="card-content">
+                  <div className="card-header">
+                    <span className="demo-number">{demo.subtitle}</span>
+                    <h2 className="demo-name">{demo.name}</h2>
+                    <span className="demo-style">{demo.style}</span>
+                  </div>
+                  
+                  <p className="demo-description">
+                    {demo.description}
+                  </p>
+                  
+                  <div className="demo-features">
+                    {demo.features.map((feature, i) => (
+                      <span key={i} className="feature-tag">{feature}</span>
+                    ))}
+                  </div>
 
-                <div className="card-footer">
-                  <span className="view-demo">
-                    View Full Restaurant Demo
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                  </span>
+                  <div className="card-footer">
+                    <button className="demo-cta-btn">
+                      View Demo
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                      </svg>
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </a>
-          ))}
+              </a>
+            ))}
+          </div>
         </section>
 
         <section id="contact" className="contact-section">
