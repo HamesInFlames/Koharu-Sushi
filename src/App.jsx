@@ -96,15 +96,6 @@ function App() {
           </div>
         </div>
       </nav>
-      
-      <header className="header">
-        <div className="header-content">
-          <div className="logo">
-            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Kim Consultant" className="logo-img" />
-          </div>
-          <p className="tagline">Landing Essentials • Single-Page Website Package</p>
-        </div>
-      </header>
 
       <main className="main">
         <section className="intro">
