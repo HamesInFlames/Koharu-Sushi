@@ -414,6 +414,8 @@
   flex-direction: column;
   text-decoration: none;
   height: 100%;
+  color: inherit;
+  z-index: 1;
 }
 
 @keyframes fadeInUp {
@@ -513,6 +515,8 @@
   flex-direction: column;
   flex: 1;
   height: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .card-footer {

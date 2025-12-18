@@ -5,22 +5,18 @@ import './App.css'
 const isProduction = import.meta.env.PROD
 
 const getDemoUrl = (demoId) => {
-  // In production, demos are served from subfolders
+  // Always use relative paths - works in both dev and production
+  // The server.js handles routing for /demo1/, /demo2/, /demo3/
   const baseUrl = import.meta.env.BASE_URL || '/'
-  const productionUrls = {
-    1: `${baseUrl}demo1/`,
-    2: `${baseUrl}demo2/`, 
-    3: `${baseUrl}demo3/`,
+  // Remove trailing slash from baseUrl if present, then add demo path
+  const cleanBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
+  const demoUrls = {
+    1: `${cleanBase}/demo1/`,
+    2: `${cleanBase}/demo2/`, 
+    3: `${cleanBase}/demo3/`,
   }
   
-  // In development, each demo runs on its own port
-  const localUrls = {
-    1: 'http://localhost:5174',
-    2: 'http://localhost:5175',
-    3: 'http://localhost:5176',
-  }
-  
-  return isProduction ? productionUrls[demoId] : localUrls[demoId]
+  return demoUrls[demoId] || '/'
 }
 
 const demos = [
@@ -208,6 +204,7 @@ function App() {
           <div className="demos-grid">
             {demos.map((demo, index) => {
               const demoUrl = getDemoUrl(demo.id)
+              console.log(`Demo ${demo.id} URL:`, demoUrl) // Debug log
               return (
               <a
                 key={demo.id}
@@ -222,6 +219,10 @@ function App() {
                 }}
                 onMouseEnter={() => setHoveredCard(demo.id)}
                 onMouseLeave={() => setHoveredCard(null)}
+                onClick={(e) => {
+                  console.log('Demo card clicked:', demo.id, demoUrl) // Debug log
+                  // Let the default link behavior happen
+                }}
               >
                 <div className="card-glow"></div>
                 <div className="card-content">
