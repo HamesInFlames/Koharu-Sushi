@@ -1,92 +1,112 @@
-# Koharu Sushi - Website Demos
+# Kim Consultant - Landing Essentials Package
 
-This repository contains two distinct sushi restaurant website demos, each with a unique design and approach.
+A professional website showcase featuring the **Landing Essentials** single-page website package, along with three restaurant website demos.
 
-## Branches
+🌐 **Live Site:** [kshconsultantpackage.up.railway.app](https://kshconsultantpackage.up.railway.app)
 
-### 🌸 Demo-1 (Sakura Sushi House)
-**Theme:** Modern dark theme with coral red accents  
+## About
+
+Kim Consultant offers the **Landing Essentials Package** - a simple, all-in-one single-page website built to convert. Ideal for service businesses, events, and personal brands that want a professional online presence without the complexity of a full multi-page site.
+
+### Package Details
+- **$1,000** upfront
+- **$100/mo** required maintenance
+
+### What's Included
+- 1-page responsive website (scroll-based layout)
+- Hero section with headline and primary call-to-action
+- About / intro section
+- Services or features block
+- Testimonials or social proof section
+- Contact form + Google Maps embed
+- Mobile-optimized design
+- Fast-loading layout with basic on-page SEO
+- Hosting, SSL, backups & updates
+
+## Demo Websites
+
+### 🌸 Demo 1 - Sakura Sushi House
+**Theme:** Traditional & Elegant  
 **Features:**
-- Multi-page React Router setup
-- Dark background with vibrant accents
-- Sections: Home, About, Menu, Gallery, Location
-- Responsive design
-- Social media and delivery platform links
+- Multi-page layout with React Router
+- Cherry blossom inspired design
+- Photo gallery
+- Location map
 
-**Tech Stack:**
-- React 18
-- React Router DOM
-- Vite
-- Modern CSS with animations
-
-### 🎋 Demo-2 (ZEN Sushi)
-**Theme:** Elegant minimalist cream theme with gold accents  
+### 🎋 Demo 2 - ZEN Sushi
+**Theme:** Modern & Zen  
 **Features:**
-- Single-page application
-- Warm cream/beige color scheme
-- Sophisticated serif typography
-- Sections: Philosophy, Menu, Gallery, Reviews, Contact
-- Horizontal scrolling gallery
+- Single-page minimalist design
+- Philosophy section
+- Customer reviews
 - Reservation form
 
-**Tech Stack:**
-- React 18
-- Vite
-- Elegant CSS design
+### 🍣 Demo 3 - KOHARU Japanese Restaurant
+**Theme:** Professional & Authentic  
+**Features:**
+- Complete menu with real prices
+- Real contact information
+- Online ordering integration (Uber Eats)
+- Instagram QR code
 
-### 📋 Realistic-Demo
-Branch for realistic production-ready implementations.
+## Tech Stack
+
+- **Frontend:** React 18, Vite
+- **Backend:** Express.js (static file serving)
+- **Forms:** Formspree
+- **Hosting:** Railway
+- **Styling:** Modern CSS with animations
 
 ## Getting Started
 
 ### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
+- Node.js (v18 or higher)
+- npm
 
 ### Installation
 
-For each demo, navigate to the branch and install dependencies:
-
 ```bash
-# For Demo-1
-git checkout Demo-1
-npm install
-npm run dev
+# Clone the repository
+git clone https://github.com/HamesInFlames/Koharu-Sushi.git
+cd Koharu-Sushi
 
-# For Demo-2
-git checkout Demo-2
+# Install dependencies
 npm install
+
+# Start development server
 npm run dev
 ```
 
-### Development
+### Build & Deploy
 
 ```bash
-npm run dev    # Start development server
-npm run build  # Build for production
-npm run preview # Preview production build
+# Build all projects (hub + demos)
+npm run build
+
+# Start production server
+npm start
 ```
 
 ## Project Structure
 
-Each demo branch contains:
-- `src/components/` - React components
-- `src/pages/` - Page components (Demo-1 only)
-- `src/` - Main application files
-- `public/` - Static assets
-- `index.html` - Entry HTML file
+```
+├── src/                    # Main hub (Kim Consultant)
+│   ├── App.jsx
+│   ├── App.css
+│   └── index.css
+├── Demo 1 (Sakura Sushi House)/
+├── Demo 2 (ZEN Sushi)/
+├── Demo 3 (Realistic Demo)/
+├── server.js               # Express server for production
+├── build-all.js            # Build script for all projects
+└── install-all.js          # Install script for all demos
+```
 
-## Features
+## Contact
 
-Both demos include:
-- ✅ Responsive mobile-friendly design
-- ✅ Social media links (Instagram, Facebook, TikTok)
-- ✅ Food delivery platform links (UberEats, DoorDash, SkipTheDishes)
-- ✅ High-quality sushi images
-- ✅ Smooth CSS animations
-- ✅ Modern UI/UX design
+For inquiries about the Landing Essentials package:
+- **Email:** xoxoksh05@gmail.com
 
 ## License
 
 This project is for demonstration purposes.
-
