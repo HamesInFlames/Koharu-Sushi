@@ -75,7 +75,7 @@ function App() {
   const scrollToSection = (id) => {
     const element = document.getElementById(id)
     if (element) {
-      const offset = 200 // Account for fixed navbar with large logo
+      const offset = 150 // Account for fixed navbar height
       const elementPosition = element.getBoundingClientRect().top
       const offsetPosition = elementPosition + window.pageYOffset - offset
 
