@@ -540,7 +540,7 @@
   gap: 0.5rem;
   transition: all 0.3s ease;
   font-family: var(--font-body);
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .demo-cta-btn svg {

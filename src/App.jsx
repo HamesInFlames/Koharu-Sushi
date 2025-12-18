@@ -5,15 +5,11 @@ import './App.css'
 const isProduction = import.meta.env.PROD
 
 const getDemoUrl = (demoId) => {
-  // Always use relative paths - works in both dev and production
-  // The server.js handles routing for /demo1/, /demo2/, /demo3/
-  const baseUrl = import.meta.env.BASE_URL || '/'
-  // Remove trailing slash from baseUrl if present, then add demo path
-  const cleanBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
+  // Use simple relative paths - server.js handles routing
   const demoUrls = {
-    1: `${cleanBase}/demo1/`,
-    2: `${cleanBase}/demo2/`, 
-    3: `${cleanBase}/demo3/`,
+    1: '/demo1/',
+    2: '/demo2/', 
+    3: '/demo3/',
   }
   
   return demoUrls[demoId] || '/'
@@ -204,7 +200,6 @@ function App() {
           <div className="demos-grid">
             {demos.map((demo, index) => {
               const demoUrl = getDemoUrl(demo.id)
-              console.log(`Demo ${demo.id} URL:`, demoUrl) // Debug log
               return (
               <a
                 key={demo.id}
@@ -219,10 +214,6 @@ function App() {
                 }}
                 onMouseEnter={() => setHoveredCard(demo.id)}
                 onMouseLeave={() => setHoveredCard(null)}
-                onClick={(e) => {
-                  console.log('Demo card clicked:', demo.id, demoUrl) // Debug log
-                  // Let the default link behavior happen
-                }}
               >
                 <div className="card-glow"></div>
                 <div className="card-content">
@@ -243,7 +234,7 @@ function App() {
                   </div>
 
                   <div className="card-footer">
-                    <div className="demo-cta-btn">
+                    <div className="demo-cta-btn" onClick={(e) => e.stopPropagation()}>
                       View Demo
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
