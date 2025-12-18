@@ -4,9 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently --kill-others npm:dev:vite npm:server",
-    "dev:vite": "vite",
-    "server": "node server.js",
+    "dev": "vite",
     "postinstall": "node install-all.js",
     "build": "node build-all.js",
     "build:hub": "vite build",
@@ -20,7 +18,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.7.0",
-    "concurrently": "^9.2.1",
     "vite": "^5.4.21"
   },
   "optionalDependencies": {
