@@ -273,29 +273,26 @@ function App() {
               setFormStatus({ submitting: true, success: false, error: null })
               
               const formData = new FormData(e.target)
-              const email = formData.get('email')
-              const phone = formData.get('phone')
-              const message = formData.get('message')
+              formData.append("access_key", "e4a80fb0-6000-457b-8beb-4f56d83848aa")
 
               try {
-                const response = await fetch('/api/contact', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ email, phone, message })
+                const response = await fetch("https://api.web3forms.com/submit", {
+                  method: "POST",
+                  body: formData
                 })
 
                 const data = await response.json()
 
-                if (!response.ok) {
-                  throw new Error(data.error || 'Failed to send')
+                if (data.success) {
+                  setFormStatus({ submitting: false, success: true, error: null })
+                  e.target.reset()
+                  
+                  setTimeout(() => {
+                    setFormStatus({ submitting: false, success: false, error: null })
+                  }, 5000)
+                } else {
+                  throw new Error(data.message || 'Failed to send')
                 }
-                
-                setFormStatus({ submitting: false, success: true, error: null })
-                e.target.reset()
-                
-                setTimeout(() => {
-                  setFormStatus({ submitting: false, success: false, error: null })
-                }, 5000)
               } catch (error) {
                 setFormStatus({ submitting: false, success: false, error: error.message })
               }

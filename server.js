@@ -2,15 +2,10 @@ import express from 'express';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { existsSync, readdirSync } from 'fs';
-import nodemailer from 'nodemailer';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-// Middleware for parsing JSON
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 // Check if dist folder exists
 const distPath = join(__dirname, 'dist');
@@ -22,64 +17,6 @@ if (existsSync(distPath)) {
 } else {
   console.error('ERROR: dist folder does not exist!');
 }
-
-// Email endpoint using Nodemailer with Gmail
-app.post('/api/contact', async (req, res) => {
-  console.log('📧 Contact form submission received');
-  
-  try {
-    const { email, phone, message } = req.body;
-
-    if (!email || !phone || !message) {
-      return res.status(400).json({ error: 'All fields are required' });
-    }
-
-    const emailUser = process.env.EMAIL_USER;
-    const emailPass = process.env.EMAIL_PASS;
-
-    if (!emailUser || !emailPass) {
-      console.error('❌ EMAIL_USER or EMAIL_PASS not set');
-      return res.status(500).json({ error: 'Email not configured. Contact us at xoxoksh05@gmail.com' });
-    }
-
-    // Try with port 587 and TLS
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 587,
-      secure: false,
-      auth: {
-        user: emailUser,
-        pass: emailPass
-      },
-      tls: {
-        rejectUnauthorized: false
-      },
-      connectionTimeout: 10000,
-      greetingTimeout: 10000,
-      socketTimeout: 10000
-    });
-
-    await transporter.sendMail({
-      from: emailUser,
-      to: 'xoxoksh05@gmail.com',
-      replyTo: email,
-      subject: 'Landing Essentials - New Inquiry',
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>From:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-      `
-    });
-
-    console.log('✅ Email sent!');
-    res.json({ success: true, message: 'Email sent successfully' });
-  } catch (error) {
-    console.error('❌ Email error:', error.message);
-    res.status(500).json({ error: 'Failed to send. Email us directly at xoxoksh05@gmail.com' });
-  }
-});
 
 // Serve static files from dist folder
 app.use(express.static(distPath));
