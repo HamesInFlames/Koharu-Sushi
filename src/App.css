@@ -28,8 +28,10 @@
   border-bottom: 1px solid var(--color-border);
   transition: all 0.3s ease;
   height: 150px;
+  max-height: 150px;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 .navbar.scrolled {
